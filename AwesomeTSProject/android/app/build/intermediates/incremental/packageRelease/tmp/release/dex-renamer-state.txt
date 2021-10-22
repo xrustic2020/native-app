@@ -1,0 +1,4 @@
+#Fri Oct 22 18:43:59 EEST 2021
+base.0=/home/xrustic/dev/my-tests/native-app/AwesomeTSProject/android/app/build/intermediates/dex/release/mergeDexRelease/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
