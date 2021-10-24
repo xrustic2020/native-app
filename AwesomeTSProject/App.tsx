@@ -7,42 +7,21 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import AuthProvider from './context/AuthProvider';
 
-import LoginScreen from './screens/Login/LoginScreen';
-import RegisterScreen from './screens/Register/RegisterScreen';
-
-const Tab = createBottomTabNavigator();
+import AuthCheck from './components/AuthCheck/AuthCheck';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Login"
-        screenOptions={{
-          tabBarActiveTintColor: 'violet',
-          tabBarInactiveTintColor: 'gray',
-        }}>
-        <Tab.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{
-            title: 'Logins',
-            headerStyle: {
-              backgroundColor: 'yellow',
-            },
-          }}
-        />
-        <Tab.Screen name="Registration" component={RegisterScreen} />
-        <Tab.Screen name="Three" component={LoginScreen} />
-        <Tab.Screen name="Four" component={RegisterScreen} />
-        <Tab.Screen name="Five" component={LoginScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <AuthCheck />
+      </NavigationContainer>
+    </AuthProvider>
   );
 };
 
