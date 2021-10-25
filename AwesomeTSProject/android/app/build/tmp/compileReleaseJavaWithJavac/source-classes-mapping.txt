@@ -1,9 +1,0 @@
-com/awesometsproject/MainActivity.java
- com.awesometsproject.MainActivity
-com/awesometsproject/MainApplication.java
- com.awesometsproject.MainApplication
- com.awesometsproject.MainApplication$1
-com/awesometsproject/BuildConfig.java
- com.awesometsproject.BuildConfig
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList
