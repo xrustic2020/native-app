@@ -5,6 +5,8 @@ const Tab = createBottomTabNavigator();
 import Screen from './Stack/StackScreen';
 import NativeStack from './NativeStack/NativeStack';
 import Drawer from './Drawer/Drawer';
+import TopMaterial from './TopMaterial/TopMaterial';
+import BottomMaterial from './BottomMaterial/BottomMaterial';
 
 import AdIcon from '../../images/icons/ad.svg';
 import BookIcon from '../../images/icons/address-book.svg';
@@ -51,7 +53,7 @@ const TabStack = () => {
       />
       <Tab.Screen
         name="Four"
-        component={Screen}
+        component={TopMaterial}
         options={{
           tabBarIcon: ({focused, size, color}) => {
             return <ChatIcon width={size} height={size} fill={color} />;
@@ -60,7 +62,7 @@ const TabStack = () => {
       />
       <Tab.Screen
         name="Five"
-        component={Screen}
+        component={BottomMaterial}
         options={{
           tabBarIcon: ({focused, size, color}) => {
             return <MenuIcon width={size} height={size} fill={color} />;

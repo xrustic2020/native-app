@@ -10,7 +10,7 @@ import AddedPostIcon from '../../../images/icons/plus-square.svg';
 
 const Drawer = createDrawerNavigator();
 
-const CreateScreen = () => {
+const DrawerComponent = () => {
   return (
     <>
       <Drawer.Navigator
@@ -46,4 +46,4 @@ const CreateScreen = () => {
   );
 };
 
-export default CreateScreen;
+export default DrawerComponent;
