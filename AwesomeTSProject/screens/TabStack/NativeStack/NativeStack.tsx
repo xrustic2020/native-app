@@ -10,7 +10,12 @@ const Stack = createNativeStackNavigator();
 const CreateScreen = () => {
   return (
     <>
-      <Stack.Navigator initialRouteName={'Posts'}>
+      <Stack.Navigator
+        initialRouteName={'Posts'}
+        screenOptions={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: 'violet'},
+        }}>
         <Stack.Screen
           name="Posts"
           component={PostsScreen}

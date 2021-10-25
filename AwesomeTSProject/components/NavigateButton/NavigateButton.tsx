@@ -9,7 +9,6 @@ interface IProps {
 }
 
 const NavigateButton = ({text, action}: IProps) => {
-  // const context = useContext(AuthContext);
   return (
     <TouchableOpacity
       activeOpacity={0.5}

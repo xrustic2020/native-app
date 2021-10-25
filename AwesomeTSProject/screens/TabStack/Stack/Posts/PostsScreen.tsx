@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 import AuthContext from '../../../../context/AuthContext';
 import Icon from '../../../../images/icons/ad.svg';
 
 import NavigateButton from '../../../../components/NavigateButton/NavigateButton';
+import SolidButton from '../../../../components/SolidButton/SolidButton';
 
 interface IProps {
   navigation: any;
@@ -15,7 +16,11 @@ const Posts = ({navigation}: IProps) => {
   return (
     <View style={s.container}>
       <Text style={s.heading}>My Posts</Text>
-      <Button title={'logout'} onPress={() => context.logOut()} />
+      <SolidButton text={'logout'} action={context.logOut} />
+      <SolidButton
+        text={'open modal'}
+        action={() => navigation.navigate('Modal')}
+      />
       <Icon fill={'#000'} width={100} height={100} style={s.icon} />
       <NavigateButton text={'Create Post'} action={navigation.navigate} />
     </View>

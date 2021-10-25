@@ -16,24 +16,24 @@ const TopMaterial = () => {
       <Tab.Navigator
         initialRouteName={'Posts'}
         barStyle={{paddingBottom: 20}}
-        labeled={false}>
+        labeled={false}
+        shifting={true}>
         <Tab.Screen
           name="Posts"
           component={PostsScreen}
           options={{
-            tabBarIcon: ({focused, size, color}) => (
-              <AllPostsIcon fill={color} width={size} height={size} />
-            ),
+            tabBarIcon: ({color}) => <AllPostsIcon fill={color} />,
             tabBarColor: 'violet',
+            tabBarAccessibilityLabel: 'All Posts',
           }}
         />
         <Tab.Screen
           name="Create Post"
           component={CreatePostScreen}
           options={{
-            tabBarIcon: ({focused, size, color}) => (
-              <AddedPostIcon fill={color} width={size} height={size} />
-            ),
+            tabBarIcon: ({color}) => <AddedPostIcon fill={color} />,
+            tabBarColor: 'skyblue',
+            tabBarAccessibilityLabel: 'Create Post',
           }}
         />
       </Tab.Navigator>

@@ -10,7 +10,7 @@ const PostsScreen = ({navigation}: IProps) => {
   return (
     <View style={s.container}>
       <Text style={s.heading}>Create Post Screen</Text>
-      <Text style={s.message}>You cat go to the all posts:</Text>
+      <Text style={s.message}>You can go to the all posts:</Text>
       <NavigateButton text={'Posts'} action={navigation.navigate} />
     </View>
   );

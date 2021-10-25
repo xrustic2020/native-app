@@ -22,12 +22,14 @@ const DrawerComponent = () => {
           },
           drawerType: 'front',
           drawerActiveTintColor: 'white',
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: 'violet'},
         }}>
         <Drawer.Screen
           name="Posts"
           component={PostsScreen}
           options={{
-            drawerIcon: ({focused, color, size}) => (
+            drawerIcon: ({color, size}) => (
               <AllPostsIcon width={size} height={size} fill={color} />
             ),
           }}
@@ -36,7 +38,7 @@ const DrawerComponent = () => {
           name="Create Post"
           component={CreatePostScreen}
           options={{
-            drawerIcon: ({focused, color, size}) => (
+            drawerIcon: ({color, size}) => (
               <AddedPostIcon width={size} height={size} fill={color} />
             ),
           }}

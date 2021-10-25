@@ -28,7 +28,7 @@ const TabStack = () => {
         component={Screen}
         options={{
           title: 'Stack',
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({size, color}) => {
             return <AdIcon width={size} height={size} fill={color} />;
           },
         }}
@@ -37,7 +37,7 @@ const TabStack = () => {
         name="Native Stack"
         component={NativeStack}
         options={{
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({size, color}) => {
             return <BookIcon width={size} height={size} fill={color} />;
           },
         }}
@@ -46,7 +46,7 @@ const TabStack = () => {
         name="Drawer"
         component={Drawer}
         options={{
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({size, color}) => {
             return <CardIcon width={size} height={size} fill={color} />;
           },
         }}
@@ -55,7 +55,7 @@ const TabStack = () => {
         name="Four"
         component={TopMaterial}
         options={{
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({size, color}) => {
             return <ChatIcon width={size} height={size} fill={color} />;
           },
         }}
@@ -64,7 +64,7 @@ const TabStack = () => {
         name="Five"
         component={BottomMaterial}
         options={{
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({size, color}) => {
             return <MenuIcon width={size} height={size} fill={color} />;
           },
         }}
