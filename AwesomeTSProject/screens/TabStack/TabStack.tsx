@@ -52,7 +52,7 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Four"
+        name="Top Material"
         component={TopMaterial}
         options={{
           tabBarIcon: ({size, color}) => {
@@ -61,7 +61,7 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Five"
+        name="Bottom Mat."
         component={BottomMaterial}
         options={{
           tabBarIcon: ({size, color}) => {

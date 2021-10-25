@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 
-import styles from './BottomNavigation-style';
+import s from './BottomNavigation-style';
 
 interface IProps {
   navigator: any;
@@ -15,13 +15,13 @@ const BottomNavigation = ({navigator, goTo}: IProps) => {
       : 'Not registered? It`s easy, follow here:';
   return (
     <>
-      <Text style={styles.notRegisterText}>{text}</Text>
+      <Text style={s.notRegisterText}>{text}</Text>
 
       <TouchableOpacity
         activeOpacity={0.5}
-        style={styles.signUpBtn}
+        style={s.signUpBtn}
         onPress={() => navigator(`${goTo}`)}>
-        <Text style={styles.signUpBtnTitle}>{goTo.toLocaleUpperCase()}</Text>
+        <Text style={s.signUpBtnTitle}>{goTo.toLocaleUpperCase()}</Text>
       </TouchableOpacity>
     </>
   );

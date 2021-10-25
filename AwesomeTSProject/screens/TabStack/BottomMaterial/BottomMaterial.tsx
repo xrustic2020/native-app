@@ -10,7 +10,7 @@ import AddedPostIcon from '../../../images/icons/plus-square.svg';
 
 const Tab = createMaterialBottomTabNavigator();
 
-const TopMaterial = () => {
+const BottomMaterial = () => {
   return (
     <>
       <Tab.Navigator
@@ -41,4 +41,4 @@ const TopMaterial = () => {
   );
 };
 
-export default TopMaterial;
+export default BottomMaterial;

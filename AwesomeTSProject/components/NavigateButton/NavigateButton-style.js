@@ -9,6 +9,7 @@ export default RN.StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
+    marginBottom: 10,
   },
   btnTitle: {
     fontWeight: 'bold',

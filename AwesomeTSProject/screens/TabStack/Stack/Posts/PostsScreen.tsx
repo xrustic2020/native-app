@@ -18,7 +18,11 @@ const Posts = ({navigation}: IProps) => {
       <Text style={s.heading}>My Posts</Text>
       <SolidButton text={'logout'} action={context.logOut} />
       <SolidButton
-        text={'open modal'}
+        text={'modals View'}
+        action={() => navigation.navigate('TransparentModal')}
+      />
+      <SolidButton
+        text={'open native Modal'}
         action={() => navigation.navigate('Modal')}
       />
       <Icon fill={'#000'} width={100} height={100} style={s.icon} />

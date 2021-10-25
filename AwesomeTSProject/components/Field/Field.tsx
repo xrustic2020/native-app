@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput, Text, View} from 'react-native';
 
-import styles from './Field-style';
+import s from './Field-style';
 
 interface IProps {
   name: string;
@@ -11,9 +11,9 @@ interface IProps {
 const Field = ({name, indent = 0}: IProps) => {
   return (
     <View style={{marginBottom: indent}}>
-      <Text style={styles.label}>{name}</Text>
+      <Text style={s.label}>{name}</Text>
       <TextInput
-        style={styles.input}
+        style={s.input}
         placeholder={`please, enter here your ${name}`}
         secureTextEntry={name === 'Password'}
       />
