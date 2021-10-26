@@ -18,20 +18,17 @@ const PostsScreen = () => {
             },
             key: '2',
           },
-          {path: require('../../../../images/nature11.png'), key: '3'},
+          {path: require('../../../../images/nature1.jpeg'), key: '3'},
+          {path: require('../../../../images/nature3.jpg'), key: '5'},
+          {path: require('../../../../images/nature11.png'), key: '6'},
           {
             path: {
               uri: 'https://freepngimg.com/thumb/tree/4-tree-png-image-download-picture.png',
             },
-            key: '4',
+            key: '7',
           },
-          {path: require('../../../../images/nature11.png'), key: '5'},
-          {
-            path: {
-              uri: 'https://freepngimg.com/thumb/tree/4-tree-png-image-download-picture.png',
-            },
-            key: '6',
-          },
+          {path: require('../../../../images/nature1.jpeg'), key: '8'},
+          {path: require('../../../../images/nature3.jpg'), key: '9'},
         ]}
         keyExtractor={item => item.key}
         renderItem={({item}) => {
