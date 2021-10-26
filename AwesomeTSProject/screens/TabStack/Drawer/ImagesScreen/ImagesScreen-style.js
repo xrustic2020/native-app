@@ -14,4 +14,12 @@ export default RN.StyleSheet.create({
   message: {
     marginBottom: 10,
   },
+  list: {
+    width: '90%',
+    backgroundColor: 'lightgrey',
+  },
+  img: {
+    width: '100%',
+    height: 400,
+  },
 });
