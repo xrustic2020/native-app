@@ -25,7 +25,7 @@ const Posts = ({navigation}: IProps) => {
         text={'open native Modal'}
         action={() => navigation.navigate('Modal')}
       />
-      <Icon fill={'#000'} width={100} height={100} style={s.icon} />
+      <Icon fill={'#000000'} width={100} height={100} style={s.icon} />
       <NavigateButton text={'Create Post'} action={navigation.navigate} />
     </View>
   );

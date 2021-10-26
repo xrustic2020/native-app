@@ -15,8 +15,8 @@ const CreateScreen = () => {
       <Stack.Navigator
         initialRouteName={'Posts'}
         screenOptions={{
-          headerTintColor: 'white',
-          headerStyle: {backgroundColor: 'violet'},
+          headerTintColor: '#ffffff',
+          headerStyle: {backgroundColor: '#ee82ee'},
         }}>
         <Stack.Group>
           <Stack.Screen

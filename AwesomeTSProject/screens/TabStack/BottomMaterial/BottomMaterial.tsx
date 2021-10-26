@@ -23,7 +23,7 @@ const BottomMaterial = () => {
           component={PostsScreen}
           options={{
             tabBarIcon: ({color}) => <AllPostsIcon fill={color} />,
-            tabBarColor: 'violet',
+            tabBarColor: '#ee82ee',
             tabBarAccessibilityLabel: 'All Posts',
           }}
         />
@@ -32,7 +32,7 @@ const BottomMaterial = () => {
           component={CreatePostScreen}
           options={{
             tabBarIcon: ({color}) => <AddedPostIcon fill={color} />,
-            tabBarColor: 'skyblue',
+            tabBarColor: '#87ceeb',
             tabBarAccessibilityLabel: 'Create Post',
           }}
         />

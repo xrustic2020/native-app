@@ -27,7 +27,7 @@ const s = StyleSheet.create({
     height: 200,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#ffffff',
   },
 });
 

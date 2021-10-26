@@ -9,6 +9,6 @@ export default RN.StyleSheet.create({
     justifyContent: 'center',
   },
   btnTitle: {
-    color: 'white',
+    color: '#ffffff',
   },
 });

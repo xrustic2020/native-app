@@ -19,8 +19,8 @@ const TabStack = () => {
     <Tab.Navigator
       initialRouteName="Stack"
       screenOptions={{
-        tabBarActiveTintColor: 'violet',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#ee82ee',
+        tabBarInactiveTintColor: '#808080',
         headerShown: false,
       }}>
       <Tab.Screen
