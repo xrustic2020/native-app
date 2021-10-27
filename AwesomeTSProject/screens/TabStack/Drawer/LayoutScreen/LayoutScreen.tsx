@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, StatusBar, Switch} from 'react-native';
 import SearchIcon from '../../../../images/icons/search.svg';
 
+import {colors} from '../../../../assets/constants/styles';
+
 import s from './LayoutScreen-style';
 
 const PostsScreen = () => {
@@ -13,10 +15,15 @@ const PostsScreen = () => {
 
   return (
     <View style={s.container}>
-      <StatusBar backgroundColor={'#ee82ee'} />
+      <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
       <View style={s.header}>
         <View style={s.headerWrapper}>
-          <SearchIcon width={20} height={20} fill={'#ffffff'} style={s.icon} />
+          <SearchIcon
+            width={20}
+            height={20}
+            fill={colors.WHITE}
+            style={s.icon}
+          />
           <TextInput style={s.input} />
         </View>
       </View>
@@ -33,9 +40,9 @@ const PostsScreen = () => {
       </Text>
       <View style={s.box} />
       <Switch
-        trackColor={{false: '#767577', true: '#ee82ee'}}
+        trackColor={{false: colors.GREY, true: colors.LIGHT_VIOLET}}
         thumbColor={'#f4f3f4'}
-        ios_backgroundColor={'#3e3e3e'}
+        ios_backgroundColor={colors.GREY}
         onValueChange={toggleSwitch}
         value={isActiveSwitch}
       />

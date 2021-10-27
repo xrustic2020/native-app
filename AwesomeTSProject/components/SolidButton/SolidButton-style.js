@@ -1,17 +1,23 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  placeholders,
+  sizes,
+  indents,
+  fonts,
+} from '../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   btn: {
-    backgroundColor: '#1e90ff',
+    backgroundColor: colors.BLUE,
     borderRadius: 2,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 10,
-    marginBottom: 10,
+    height: sizes.TOUCH_BTN_HEIGHT,
+    ...placeholders.FLEX_CENTER_CENTER,
+    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING,
+    marginBottom: indents.MAIN_BOTTOM,
   },
   btnTitle: {
-    fontWeight: 'bold',
-    color: '#ffffff',
+    fontWeight: fonts.WEIGHT_SIZE,
+    color: colors.WHITE,
   },
 });

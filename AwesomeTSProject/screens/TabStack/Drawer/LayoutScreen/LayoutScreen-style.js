@@ -1,6 +1,7 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import { colors, fonts, placeholders } from '../../../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -8,7 +9,7 @@ export default RN.StyleSheet.create({
   header: {
     width: '100%',
     height: 70,
-    backgroundColor: '#ee82ee',
+    backgroundColor: colors.LIGHT_VIOLET,
     alignItems: 'center',
     marginBottom: 40,
   },
@@ -17,10 +18,9 @@ export default RN.StyleSheet.create({
     position: 'relative',
   },
   input: {
-    borderWidth: 2,
-    borderRadius: 5,
-    borderColor: '#ffffff',
-    color: '#ffffff',
+    ...placeholders.BORDER_DEFAULT_PARAMS,
+    borderColor: colors.WHITE,
+    color: colors.WHITE,
     paddingLeft: 46,
   },
   icon: {
@@ -29,10 +29,10 @@ export default RN.StyleSheet.create({
     left: 14,
   },
   heading: {
-    fontFamily: 'irishgrover',
+    fontFamily: fonts.IRIS_GROVER,
     marginBottom: 50,
-    fontSize: 24,
-    color: '#000',
+    fontSize: fonts.HEADING_SIZE,
+    color: colors.BLACK,
   },
   span: {
     color: 'red',

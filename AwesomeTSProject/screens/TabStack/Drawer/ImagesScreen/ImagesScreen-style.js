@@ -1,22 +1,24 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  placeholders,
+  sizes,
+  fonts,
+} from '../../../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...placeholders.FLEX_CENTER_CENTER,
   },
   heading: {
     marginBottom: 50,
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
-  message: {
-    marginBottom: 10,
+    fontWeight: fonts.WEIGHT_SIZE,
+    fontSize: fonts.HEADING_SIZE,
   },
   list: {
     width: '90%',
-    backgroundColor: 'lightgrey',
+    backgroundColor: colors.LIGHT_GREY,
   },
   img: {
     width: '100%',

@@ -12,6 +12,8 @@ import AddedPostIcon from '../../../images/icons/plus-square.svg';
 import ImagesIcon from '../../../images/icons/images.svg';
 import LayoutIcon from '../../../images/icons/align-right.svg';
 
+import {colors} from '../../../assets/constants/styles';
+
 const Drawer = createDrawerNavigator();
 
 const DrawerComponent = () => {
@@ -21,13 +23,13 @@ const DrawerComponent = () => {
         initialRouteName={'Posts'}
         screenOptions={{
           drawerStyle: {
-            backgroundColor: '#c6cbef',
+            backgroundColor: colors.NEUTRAL_VIOLET,
             width: 200,
           },
           drawerType: 'front',
-          drawerActiveTintColor: '#ffffff',
-          headerTintColor: '#ffffff',
-          headerStyle: {backgroundColor: '#ee82ee'},
+          drawerActiveTintColor: colors.WHITE,
+          headerTintColor: colors.WHITE,
+          headerStyle: {backgroundColor: colors.LIGHT_VIOLET},
         }}>
         <Drawer.Screen
           name="Posts"

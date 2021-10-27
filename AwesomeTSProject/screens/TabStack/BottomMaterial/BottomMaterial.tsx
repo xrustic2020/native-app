@@ -8,6 +8,8 @@ import PostsScreen from '../Stack/Posts/PostsScreen';
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
 
+import {colors} from '../../../assets/constants/styles';
+
 const Tab = createMaterialBottomTabNavigator();
 
 const BottomMaterial = () => {
@@ -23,7 +25,7 @@ const BottomMaterial = () => {
           component={PostsScreen}
           options={{
             tabBarIcon: ({color}) => <AllPostsIcon fill={color} />,
-            tabBarColor: '#ee82ee',
+            tabBarColor: colors.LIGHT_VIOLET,
             tabBarAccessibilityLabel: 'All Posts',
           }}
         />
@@ -32,7 +34,7 @@ const BottomMaterial = () => {
           component={CreatePostScreen}
           options={{
             tabBarIcon: ({color}) => <AddedPostIcon fill={color} />,
-            tabBarColor: '#87ceeb',
+            tabBarColor: colors.LIGHT_BLUE,
             tabBarAccessibilityLabel: 'Create Post',
           }}
         />

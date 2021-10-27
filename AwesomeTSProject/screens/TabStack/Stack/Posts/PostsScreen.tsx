@@ -1,11 +1,13 @@
 import React, {useContext} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import AuthContext from '../../../../context/AuthContext';
 import Icon from '../../../../images/icons/ad.svg';
 
 import NavigateButton from '../../../../components/NavigateButton/NavigateButton';
 import SolidButton from '../../../../components/SolidButton/SolidButton';
+
+import {placeholders, fonts, colors} from '../../../../assets/constants/styles';
 
 interface IProps {
   navigation: any;
@@ -25,7 +27,7 @@ const Posts = ({navigation}: IProps) => {
         text={'open native Modal'}
         action={() => navigation.navigate('Modal')}
       />
-      <Icon fill={'#000000'} width={100} height={100} style={s.icon} />
+      <Icon fill={colors.BLACK} width={100} height={100} style={s.icon} />
       <NavigateButton text={'Create Post'} action={navigation.navigate} />
     </SafeAreaView>
   );
@@ -34,13 +36,12 @@ const Posts = ({navigation}: IProps) => {
 const s = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    ...placeholders.FLEX_CENTER_CENTER,
   },
   heading: {
     marginBottom: 50,
-    fontWeight: 'bold',
-    fontSize: 24,
+    fontWeight: fonts.WEIGHT_SIZE,
+    fontSize: fonts.HEADING_SIZE,
   },
   icon: {
     marginBottom: 40,

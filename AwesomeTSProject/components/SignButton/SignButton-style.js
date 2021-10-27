@@ -1,14 +1,14 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import { colors, placeholders, sizes } from '../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   btn: {
-    backgroundColor: '#841584',
-    height: 40,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.VIOLET,
+    height: sizes.TOUCH_BTN_HEIGHT,
+    borderRadius: 6,
+    ...placeholders.FLEX_CENTER_CENTER,
   },
   btnTitle: {
-    color: '#ffffff',
+    color: colors.WHITE,
   },
 });

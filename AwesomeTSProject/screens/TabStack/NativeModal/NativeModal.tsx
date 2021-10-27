@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, Modal} from 'react-native';
 
 import SolidButton from '../../../components/SolidButton/SolidButton';
 
+import {colors, placeholders} from '../../../assets/constants/styles';
+
 interface IProps {
   navigation: any;
 }
@@ -45,9 +47,8 @@ const s = StyleSheet.create({
     paddingHorizontal: 50,
     marginVertical: 200,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    ...placeholders.FLEX_CENTER_CENTER,
+    backgroundColor: colors.WHITE,
   },
 });
 

@@ -1,21 +1,25 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  placeholders,
+  sizes,
+  fonts,
+} from '../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   notRegisterText: {
     textAlign: 'center',
     marginTop: 80,
-    marginBottom: 5,
+    marginBottom: 4,
   },
   signUpBtn: {
-    borderWidth: 2,
-    borderColor: '#841584',
-    height: 40,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
+    ...placeholders.BORDER_DEFAULT_PARAMS,
+    borderColor: colors.VIOLET,
+    height: sizes.TOUCH_BTN_HEIGHT,
+    ...placeholders.FLEX_CENTER_CENTER,
   },
   signUpBtnTitle: {
-    fontWeight: 'bold',
-    color: '#841584',
+    fontWeight: fonts.WEIGHT_SIZE,
+    color: colors.VIOLET,
   },
 });
