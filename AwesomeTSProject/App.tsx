@@ -12,15 +12,18 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import AuthProvider from './context/AuthProvider';
+import AppProvider from './context/AppProvider';
 
 import AuthCheck from './components/AuthCheck/AuthCheck';
 
 const App = () => {
   return (
     <AuthProvider>
-      <NavigationContainer>
-        <AuthCheck />
-      </NavigationContainer>
+      <AppProvider>
+        <NavigationContainer>
+          <AuthCheck />
+        </NavigationContainer>
+      </AppProvider>
     </AuthProvider>
   );
 };
