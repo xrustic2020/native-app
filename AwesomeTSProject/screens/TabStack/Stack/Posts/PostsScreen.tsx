@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import AuthContext from '../../../../context/AuthContext';
 import Icon from '../../../../images/icons/ad.svg';
@@ -14,7 +14,7 @@ interface IProps {
 const Posts = ({navigation}: IProps) => {
   const context = useContext(AuthContext);
   return (
-    <View style={s.container}>
+    <SafeAreaView style={s.container}>
       <Text style={s.heading}>My Posts</Text>
       <SolidButton text={'logout'} action={context.logOut} />
       <SolidButton
@@ -27,7 +27,7 @@ const Posts = ({navigation}: IProps) => {
       />
       <Icon fill={'#000000'} width={100} height={100} style={s.icon} />
       <NavigateButton text={'Create Post'} action={navigation.navigate} />
-    </View>
+    </SafeAreaView>
   );
 };
 
