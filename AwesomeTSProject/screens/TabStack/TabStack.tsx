@@ -14,13 +14,15 @@ import CardIcon from '../../images/icons/address-card.svg';
 import ChatIcon from '../../images/icons/comments.svg';
 import MenuIcon from '../../images/icons/align-justify.svg';
 
+import {colors} from '../../assets/constants/styles';
+
 const TabStack = () => {
   return (
     <Tab.Navigator
       initialRouteName="Stack"
       screenOptions={{
-        tabBarActiveTintColor: '#ee82ee',
-        tabBarInactiveTintColor: '#808080',
+        tabBarActiveTintColor: colors.LIGHT_VIOLET,
+        tabBarInactiveTintColor: colors.GREY,
         headerShown: false,
       }}>
       <Tab.Screen

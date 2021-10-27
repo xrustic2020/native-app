@@ -5,10 +5,14 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import CreatePostScreen from '../Stack/CreatePost/CreatePostScreen';
 import PostsScreen from '../Stack/Posts/PostsScreen';
 import ImagesScreen from './ImagesScreen/ImagesScreen';
+import LayoutScreen from './LayoutScreen/LayoutScreen';
 
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
 import ImagesIcon from '../../../images/icons/images.svg';
+import LayoutIcon from '../../../images/icons/align-right.svg';
+
+import {colors} from '../../../assets/constants/styles';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,13 +23,13 @@ const DrawerComponent = () => {
         initialRouteName={'Posts'}
         screenOptions={{
           drawerStyle: {
-            backgroundColor: '#c6cbef',
+            backgroundColor: colors.NEUTRAL_VIOLET,
             width: 200,
           },
           drawerType: 'front',
-          drawerActiveTintColor: '#ffffff',
-          headerTintColor: '#ffffff',
-          headerStyle: {backgroundColor: '#ee82ee'},
+          drawerActiveTintColor: colors.WHITE,
+          headerTintColor: colors.WHITE,
+          headerStyle: {backgroundColor: colors.LIGHT_VIOLET},
         }}>
         <Drawer.Screen
           name="Posts"
@@ -51,6 +55,15 @@ const DrawerComponent = () => {
           options={{
             drawerIcon: ({color, size}) => (
               <ImagesIcon width={size} height={size} fill={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Layouts"
+          component={LayoutScreen}
+          options={{
+            drawerIcon: ({color, size}) => (
+              <LayoutIcon width={size} height={size} fill={color} />
             ),
           }}
         />

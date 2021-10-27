@@ -7,6 +7,8 @@ import PostsScreen from './Posts/PostsScreen';
 import ModalScreen from '../ModalScreen/ModalScreen';
 import Modal from '../NativeModal/NativeModal';
 
+import {colors} from '../../../assets/constants/styles';
+
 const Stack = createStackNavigator();
 
 const CreateScreen = () => {
@@ -15,8 +17,8 @@ const CreateScreen = () => {
       <Stack.Navigator
         initialRouteName={'Posts'}
         screenOptions={{
-          headerTintColor: '#ffffff',
-          headerStyle: {backgroundColor: '#ee82ee'},
+          headerTintColor: colors.WHITE,
+          headerStyle: {backgroundColor: colors.LIGHT_VIOLET},
         }}>
         <Stack.Group>
           <Stack.Screen

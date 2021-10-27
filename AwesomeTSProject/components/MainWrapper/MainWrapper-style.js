@@ -1,6 +1,7 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import { indents } from '../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   backgroundStyle: {
     flex: 1,
     textAlign: 'center',
@@ -9,6 +10,6 @@ export default RN.StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING * 2,
   },
 });

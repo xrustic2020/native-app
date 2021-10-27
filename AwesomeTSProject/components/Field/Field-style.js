@@ -1,18 +1,23 @@
-import RN from 'react-native';
+import { StyleSheet } from 'react-native';
+import {
+  colors,
+  fonts,
+  placeholders,
+  indents,
+} from '../../assets/constants/styles';
 
-export default RN.StyleSheet.create({
+export default StyleSheet.create({
   input: {
-    fontSize: 18,
-    borderWidth: 2,
-    borderRadius: 5,
-    borderColor: '#808080',
-    color: '#808080',
-    paddingHorizontal: 12,
+    fontSize: fonts.MAIN_SIZE,
+    ...placeholders.BORDER_DEFAULT_PARAMS,
+    borderColor: colors.GREY,
+    color: colors.GREY,
+    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING,
   },
   label: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#000000',
+    fontSize: fonts.MAIN_SIZE,
+    color: colors.BLACK,
+    fontWeight: fonts.WEIGHT_SIZE,
     marginBottom: 4,
   },
 });

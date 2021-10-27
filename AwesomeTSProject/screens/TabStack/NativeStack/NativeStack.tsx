@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CreatePostScreen from '../Stack/CreatePost/CreatePostScreen';
 import PostsScreen from '../Stack/Posts/PostsScreen';
 
+import {colors} from '../../../assets/constants/styles';
+
 const Stack = createNativeStackNavigator();
 
 const CreateScreen = () => {
@@ -13,8 +15,8 @@ const CreateScreen = () => {
       <Stack.Navigator
         initialRouteName={'Posts'}
         screenOptions={{
-          headerTintColor: '#ffffff',
-          headerStyle: {backgroundColor: '#ee82ee'},
+          headerTintColor: colors.WHITE,
+          headerStyle: {backgroundColor: colors.LIGHT_VIOLET},
         }}>
         <Stack.Screen
           name="Posts"
