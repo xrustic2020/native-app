@@ -34,7 +34,7 @@ const PostsScreen = () => {
         renderItem={({item}) => {
           return (
             <View>
-              <Image style={s.img} source={item?.path} />
+              <Image style={s.imga} source={item?.path} />
             </View>
           );
         }}
