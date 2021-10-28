@@ -7,12 +7,14 @@ import PostsScreen from '../Stack/Posts/PostsScreen';
 import ImagesScreen from './ImagesScreen/ImagesScreen';
 import LayoutScreen from './LayoutScreen/LayoutScreen';
 import ContexScreen from './ContexScreen/ContexScreen';
+import MapScreen from './MapScreen/MapScreen';
 
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
 import ImagesIcon from '../../../images/icons/images.svg';
 import LayoutIcon from '../../../images/icons/align-right.svg';
 import InternetIcon from '../../../images/icons/at.svg';
+import MapIcon from '../../../images/icons/map-marked-alt.svg';
 
 import {colors} from '../../../assets/constants/styles';
 
@@ -75,6 +77,15 @@ const DrawerComponent = () => {
           options={{
             drawerIcon: ({color, size}) => (
               <InternetIcon width={size} height={size} fill={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Map"
+          component={MapScreen}
+          options={{
+            drawerIcon: ({color, size}) => (
+              <MapIcon width={size} height={size} fill={color} />
             ),
           }}
         />

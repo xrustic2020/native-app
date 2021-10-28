@@ -5,6 +5,8 @@
 intermediates/*
 
 # Xcode
+
+build/*
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -22,6 +24,8 @@ DerivedData
 *.xcuserstate
 
 # Android/IntelliJ
+
+build/
 .idea
 .gradle
 local.properties
