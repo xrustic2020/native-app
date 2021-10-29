@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fonts, placeholders } from '../../../../assets/constants/styles';
+import { colors, fonts, placeholders } from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   container: {
@@ -7,7 +7,7 @@ export default StyleSheet.create({
     ...placeholders.FLEX_CENTER_CENTER,
   },
   heading: {
-    marginBottom: 50,
+    marginBottom: 20,
     fontSize: fonts.HEADING_SIZE,
     fontWeight: fonts.WEIGHT_SIZE,
   },
@@ -15,11 +15,14 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   mapContainer: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'grey',
+    marginTop: 10,
+    width: '90%',
+    height: '80%',
   },
   map: {
     flex: 1,
+  },
+  text: {
+    fontSize: fonts.MAIN_SIZE,
   },
 });

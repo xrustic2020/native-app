@@ -12,6 +12,10 @@ target 'AwesomeTSProject' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
   target 'AwesomeTSProjectTests' do
     inherit! :complete
     # Pods for testing
