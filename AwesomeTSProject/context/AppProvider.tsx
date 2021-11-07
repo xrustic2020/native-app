@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import AppContext from './AppContext';
 
+import {getUserList} from '../api/api';
+
 const initialValue: object[] = [];
 
 export default class AppProvider extends Component {
@@ -13,9 +15,8 @@ export default class AppProvider extends Component {
         return {...prev, loading: !this.state.loading};
       });
       try {
-        const data = await fetch(
-          'https://jsonplaceholder.typicode.com/users',
-        ).then(res => res.json());
+        const data = await getUserList();
+
         this.setState(prev => {
           return {...prev, data};
         });
