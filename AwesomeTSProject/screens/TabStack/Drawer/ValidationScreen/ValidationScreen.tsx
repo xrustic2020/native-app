@@ -2,50 +2,50 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  TextInput,
   StatusBar,
-  Switch,
   ScrollView,
   Pressable,
-  Alert,
+  Modal,
+  TouchableOpacity,
 } from 'react-native';
-
 import {z} from 'zod';
 
+import {SUBSCRIPTION} from '../../../../assets/constants/variablles';
 import {colors} from '../../../../assets/constants/styles';
-
 import s from './ValidationScreen.styles';
 
 import CustomInput from '../../../../components/CustomInput/CustomInput';
-import RadioButton from '../../../../components/RadioButton/RadioButton';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import DateAndTimePicker from '../../../../components/DateAndTimePicker/DateAndTimePicker';
+import Dropdown from '../../../../components/Dropdown/Dropdown';
+import RadioSelect from '../../../../components/RadioSelect/RadioSelect';
+import CustomSwitch from '../../../../components/CustomSwitch/CustomSwitch';
 
-const schemas = {
+const schemas: {[key: string]: z.ZodString | z.ZodLiteral<true>} = {
   name: z.string().min(3),
   email: z.string().email(),
   phone: z.string().min(10),
   password: z.string().regex(/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}$/),
+  hobby: z.string().nonempty(),
+  agreements: z.literal(true),
 };
 
-const SUBSCRIPTION = {
-  FREE: 'free',
-  ENTERPRISE: 'enterprise',
-  VIP: 'vip',
-};
-
-const ValidationScreen = () => {
-  const [isActiveSwitch, setIsActiveSwitch] = useState(false);
+const ValidationScreen = (): JSX.Element => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  const [subscription, setSubscription] = useState(SUBSCRIPTION.FREE);
-
+  const [hobby, setHobby] = useState('');
+  const [subscription, setSubscription] = useState(SUBSCRIPTION.free);
+  const [date, setDate] = useState(new Date());
+  const [agreements, setAgreements] = useState(false);
   const [validation, setValidation] = useState({
     name: true,
     email: true,
     phone: true,
     password: true,
+    hobby: true,
+    agreements: true,
   });
 
   const onChangeName = (value: string) => {
@@ -72,21 +72,29 @@ const ValidationScreen = () => {
     setValidation(prev => ({...prev, password: success}));
   };
 
-  const toggleSwitch = () => {
-    setIsActiveSwitch(!isActiveSwitch);
+  const onChangeHobby = (value: string) => {
+    setHobby(value);
+    const {success} = schemas.hobby.safeParse(value);
+    setValidation(prev => ({...prev, hobby: success}));
   };
 
   const handleSubmit = () => {
-    console.log('validation:', validation);
-    const values = Object.values(validation);
-    console.log('values', values);
-    const result = values.every(el => {
-      console.log('el === true', el === true);
-      el === true;
+    const validateFields: {[key: string]: string | boolean} = {
+      name,
+      email,
+      phone,
+      password,
+      hobby,
+      agreements,
+    };
+    const res = Object.keys(validateFields);
+    const isPassedValidation = res.some(item => {
+      const {success} = schemas[item].safeParse(validateFields[item]);
+      setValidation(prev => ({...prev, [item]: success}));
+      return success === false;
     });
-    console.log('result', result);
-    if (result) {
-      Alert.alert('Validation OK :)');
+    if (!isPassedValidation) {
+      setModalVisible(true);
     }
   };
 
@@ -95,14 +103,14 @@ const ValidationScreen = () => {
       <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
       <ScrollView style={s.form}>
         <CustomInput
-          title="Name"
+          title="Name*"
           value={name}
           onChange={onChangeName}
           valid={!validation.name}
           validationMessage={'Should be at least 3 characters'}
         />
         <CustomInput
-          title="Email"
+          title="Email*"
           value={email}
           onChange={onChangeEmail}
           valid={!validation.email}
@@ -110,7 +118,7 @@ const ValidationScreen = () => {
           keyboardType="email-address"
         />
         <CustomInput
-          title="Phone"
+          title="Phone*"
           value={phone}
           onChange={onChangePhone}
           valid={!validation.phone}
@@ -118,7 +126,7 @@ const ValidationScreen = () => {
           keyboardType="phone-pad"
         />
         <CustomInput
-          title="Password"
+          title="Password*"
           value={password}
           onChange={onChangePassword}
           valid={!validation.password}
@@ -127,46 +135,46 @@ const ValidationScreen = () => {
           }
           secureTextEntry={true}
         />
-        <View style={s.radio}>
-          <TouchableOpacity
-            style={s.radioButton}
-            onPress={() => setSubscription(SUBSCRIPTION.FREE)}>
-            <RadioButton
-              value={SUBSCRIPTION.FREE}
-              subscription={subscription}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={s.radioButton}
-            onPress={() => setSubscription(SUBSCRIPTION.ENTERPRISE)}>
-            <RadioButton
-              value={SUBSCRIPTION.ENTERPRISE}
-              subscription={subscription}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={s.radioButton}
-            onPress={() => setSubscription(SUBSCRIPTION.VIP)}>
-            <RadioButton subscription={subscription} value={SUBSCRIPTION.VIP} />
-          </TouchableOpacity>
-        </View>
 
-        <View style={s.agreed}>
-          <Switch
-            trackColor={{false: colors.GREY, true: colors.LIGHT_VIOLET}}
-            thumbColor={'#f4f3f4'}
-            ios_backgroundColor={colors.GREY}
-            onValueChange={toggleSwitch}
-            value={isActiveSwitch}
-          />
-          <Text style={[s.agreedText, isActiveSwitch && {color: 'limegreen'}]}>
-            I agree to the terms of service
-          </Text>
-        </View>
+        <Dropdown
+          value={hobby}
+          action={onChangeHobby}
+          valid={validation.hobby}
+        />
+
+        <RadioSelect value={subscription} action={setSubscription} />
+
+        <DateAndTimePicker date={date} action={setDate} />
+
+        <CustomSwitch
+          value={agreements}
+          action={setAgreements}
+          valid={validation.agreements}
+        />
       </ScrollView>
+
       <Pressable style={s.button} onPress={handleSubmit}>
         <Text style={s.btnTitle}>SEND</Text>
       </Pressable>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <View style={s.modal}>
+          <View style={s.modalContentBox}>
+            <Text>{`Name: ${name}`}</Text>
+            <Text>{`Email: ${email}`}</Text>
+            <Text>{`Phone: ${phone}`}</Text>
+            <Text>{`Password: ${password}`}</Text>
+            <Text>{`Hobby: ${hobby}`}</Text>
+            <Text>{`Subscription: ${subscription}`}</Text>
+            <Text>{`Reminder: ${date}`}</Text>
+            <Text>{`Agreements: ${agreements}`}</Text>
+            <TouchableOpacity
+              onPress={() => setModalVisible(!modalVisible)}
+              style={s.closeBtn}>
+              <Text style={s.modalBtnText}>CLOSE</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
