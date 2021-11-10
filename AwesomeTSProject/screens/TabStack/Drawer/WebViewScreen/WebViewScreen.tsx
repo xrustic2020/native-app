@@ -1,24 +1,60 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ActivityIndicator, useWindowDimensions} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {colors} from '../../../../assets/constants/styles';
 
-const INJECTED_JAVASCRIPT = ` document.body.style.backgroundColor = '#841584';
-      setTimeout(function() { window.alert('easy window alert - HI bro :)') }, 2000);
+import styles from './WebViewScreen.style';
+
+const INJECTED_JAVASCRIPT = ` document.body.style.backgroundColor = '#ee82ee';    
+      const nav = document.querySelector('.nav');
+      const footer = document.querySelector('.footer');
+
+      const baner = document.querySelector('.hero-home');
+      const heading = document.querySelector('.h1--reversed');
+      const headingParagraph = document.querySelector('.p--reversed');
+      
+      nav.remove();
+      footer.remove();     
+      setTimeout(function() {
+        baner.setAttribute("style", "background-image: none; background-color: #ee82ee;");
+        heading.setAttribute("style", "color: #000000");
+        heading.textContent = 'Now its mine heading! Ha ha ha 😈';
+        headingParagraph.setAttribute("style", "color: #000000");
+      }, 2000);
+      setTimeout(function() {
+        window.alert('easy window alert - 😈')
+      }, 5000);
       true; // note: this is required, or you'll sometimes get silent failures`;
 
 const WebViewScreen = (): JSX.Element => {
+  const {height, width} = useWindowDimensions();
+  const aspectRatio = height / width;
+  const isPad = aspectRatio < 1.6;
+
   return (
-    <View style={{flex: 1, paddingTop: 20, position: 'relative'}}>
-      <View style={{flex: 1}} />
-      <Text style={{textAlign: 'center'}}>Hello</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Hello, this is a WebView Screen</Text>
       <WebView
         source={{uri: 'https://infinite.red'}}
-        style={{marginTop: 20}}
+        // source={{html: '<h1> Heading with HTML, easy! </h1>'}}
+        style={styles.webViewContainer}
         injectedJavaScript={INJECTED_JAVASCRIPT}
         onMessage={e => {
           console.log('onMessage event', e);
         }}
+        startInLoadingState={true}
+        renderLoading={() => (
+          <View style={styles.modal}>
+            <ActivityIndicator size={'large'} color={colors.WHITE} />
+          </View>
+        )}
+        scalesPageToFit={false}
+        applicationNameForUserAgent={'NativeApp / 0.7.0'}
+        contentMode={isPad ? 'desktop' : 'recommended'}
+        cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
+        textZoom={100}
+        // pullToRefreshEnabled={true}
+        autoManageStatusBarEnabled={false}
       />
     </View>
   );
