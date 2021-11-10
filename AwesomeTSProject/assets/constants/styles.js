@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-native';
+
 export const colors = {
   VIOLET: '#841584',
   LIGHT_VIOLET: '#ee82ee',
@@ -8,6 +10,8 @@ export const colors = {
   LIGHT_BLUE: '#87ceeb',
   BLACK: '#000000',
   WHITE: '#ffffff',
+  RED: '#ff0000',
+  GREEN: 'limegreen',
 };
 
 export const fonts = {
@@ -26,7 +30,7 @@ export const sizes = {
   TOUCH_BTN_HEIGHT: 40,
 };
 
-export const placeholders = {
+export const placeholders = StyleSheet.create({
   FLEX_CENTER_CENTER: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -38,4 +42,4 @@ export const placeholders = {
     borderWidth: 2,
     borderRadius: 6,
   },
-};
+});

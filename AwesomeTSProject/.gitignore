@@ -4,6 +4,10 @@
 
 intermediates/*
 
+# build/*
+# !build/app-release.apk
+/android/app/build
+
 # Xcode
 *.pbxuser
 !default.pbxuser
