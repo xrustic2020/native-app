@@ -6,11 +6,13 @@ import CreatePostScreen from '../Stack/CreatePost/CreatePostScreen';
 import PostsScreen from '../Stack/Posts/PostsScreen';
 import ImagesScreen from './ImagesScreen/ImagesScreen';
 import LayoutScreen from './LayoutScreen/LayoutScreen';
+import ContexScreen from './ContexScreen/ContexScreen';
 
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
 import ImagesIcon from '../../../images/icons/images.svg';
 import LayoutIcon from '../../../images/icons/align-right.svg';
+import InternetIcon from '../../../images/icons/at.svg';
 
 import {colors} from '../../../assets/constants/styles';
 
@@ -64,6 +66,15 @@ const DrawerComponent = () => {
           options={{
             drawerIcon: ({color, size}) => (
               <LayoutIcon width={size} height={size} fill={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Context"
+          component={ContexScreen}
+          options={{
+            drawerIcon: ({color, size}) => (
+              <InternetIcon width={size} height={size} fill={color} />
             ),
           }}
         />
