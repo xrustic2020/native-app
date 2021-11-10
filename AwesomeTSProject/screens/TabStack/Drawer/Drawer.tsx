@@ -8,6 +8,7 @@ import ImagesScreen from './ImagesScreen/ImagesScreen';
 import LayoutScreen from './LayoutScreen/LayoutScreen';
 import ContexScreen from './ContexScreen/ContexScreen';
 import ValidationScreen from './ValidationScreen/ValidationScreen';
+import WebViewScreen from './WebViewScreen/WebViewScreen';
 
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
@@ -15,6 +16,7 @@ import ImagesIcon from '../../../images/icons/images.svg';
 import LayoutIcon from '../../../images/icons/align-right.svg';
 import InternetIcon from '../../../images/icons/at.svg';
 import ValidationIcon from '../../../images/icons/newspaper.svg';
+import WebViewIcon from '../../../images/icons/laptop-code.svg';
 
 import {colors} from '../../../assets/constants/styles';
 
@@ -86,6 +88,15 @@ const DrawerComponent = () => {
           options={{
             drawerIcon: ({color, size}) => (
               <ValidationIcon width={size} height={size} fill={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Web View"
+          component={WebViewScreen}
+          options={{
+            drawerIcon: ({color, size}) => (
+              <WebViewIcon width={size} height={size} fill={color} />
             ),
           }}
         />
