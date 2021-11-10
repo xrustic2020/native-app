@@ -78,6 +78,12 @@ const ValidationScreen = (): JSX.Element => {
     setValidation(prev => ({...prev, hobby: success}));
   };
 
+  const onChangeAgreements = (value: boolean) => {
+    setAgreements(value);
+    const {success} = schemas.agreements.safeParse(value);
+    setValidation(prev => ({...prev, agreements: success}));
+  };
+
   const handleSubmit = () => {
     const validateFields: {[key: string]: string | boolean} = {
       name,
@@ -87,13 +93,13 @@ const ValidationScreen = (): JSX.Element => {
       hobby,
       agreements,
     };
-    const res = Object.keys(validateFields);
-    const isPassedValidation = res.some(item => {
+    const values = Object.keys(validateFields).map(item => {
       const {success} = schemas[item].safeParse(validateFields[item]);
       setValidation(prev => ({...prev, [item]: success}));
-      return success === false;
+      return success;
     });
-    if (!isPassedValidation) {
+    const isPassedValidation = values.every(item => item === true);
+    if (isPassedValidation) {
       setModalVisible(true);
     }
   };
@@ -148,7 +154,7 @@ const ValidationScreen = (): JSX.Element => {
 
         <CustomSwitch
           value={agreements}
-          action={setAgreements}
+          action={onChangeAgreements}
           valid={validation.agreements}
         />
       </ScrollView>

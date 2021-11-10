@@ -24,7 +24,11 @@ const CustomSwitch = ({value, action, valid}: IProps): JSX.Element => {
         onValueChange={toggleSwitch}
         value={value}
       />
-      <Text style={[styles.agreedText, !valid && {color: colors.RED}]}>
+      <Text
+        style={[
+          styles.agreedText,
+          valid ? {color: colors.GREY} : {color: colors.RED},
+        ]}>
         I agree to the terms of service
       </Text>
     </View>

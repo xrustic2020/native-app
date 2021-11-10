@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { indents, colors, sizes, fonts } from '../../assets/constants/styles';
+import { indents, sizes, fonts } from '../../assets/constants/styles';
 
 export default StyleSheet.create({
   agreed: {
@@ -11,6 +11,5 @@ export default StyleSheet.create({
   agreedText: {
     marginLeft: indents.MAIN_HORIZONTAL_PADING,
     fontSize: fonts.MAIN_SIZE,
-    color: colors.GREY,
   },
 });
