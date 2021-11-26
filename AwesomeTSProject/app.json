@@ -1,4 +1,9 @@
 {
   "name": "AwesomeTSProject",
-  "displayName": "AwesomeTSProject"
+  "displayName": "AwesomeTSProject",
+  "packagerOpts": {
+    "sourceExts": [
+      "mjs"
+    ]
+  }
 }

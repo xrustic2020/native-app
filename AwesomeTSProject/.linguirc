@@ -1,0 +1,27 @@
+{
+  "catalogs": [
+    {
+      "path": "<rootDir>/locales/{locale}/messages",
+      "include": [
+        "<rootDir>/screens",
+        "<rootDir>/components"
+      ],
+      "exclude": [
+        "**/node_modules/**"
+      ]
+    }
+  ],
+  "locales": [
+    "en",
+    "ru"
+  ],
+  "format": "po",
+  "sourceLocale": "ru",
+  "fallbackLocales": {
+    "default": "ru"
+  },
+  "formatOptions": {
+    "origins": false
+  },
+  "compileNamespace": "es"
+}

@@ -1,0 +1,1 @@
+/*eslint-disable*/export const messages={"Change Language":"Изменить язык","Translate Screen new":"Экран Перевода"};
