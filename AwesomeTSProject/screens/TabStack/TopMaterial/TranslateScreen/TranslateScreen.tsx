@@ -1,34 +1,23 @@
 // @flow
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, SafeAreaView, Text, Button} from 'react-native';
-import {Trans} from '@lingui/macro';
-import {useLingui} from '@lingui/react';
 
+import {localeContex} from '../../../../context/LocaleProvider';
 import styles from './TranslateScreen.style';
 
-// import {i18n} from '@lingui/core';
-import * as plurals from 'make-plural/plurals';
-
 const TranslateScreen = (): JSX.Element => {
-  const {i18n} = useLingui();
-  console.log('i18n obj', i18n);
+  const {translate} = useContext(localeContex);
 
-  const onChangeLang = async () => {
-    // const {messages} = await import('../../../../src/locales/ru/messages');
-    // i18n.load('ru', messages);
-    console.log('change language');
-    i18n.load('ru', await require('../../../../src/locales/ru/messages'));
-    i18n.activate('ru');
-    // i18n.activate('ru');
-  };
+  const userName = 'Gregory';
 
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.container}>
-        <Text>
-          <Trans>Translate Screen new</Trans>
-        </Text>
-        <Button onPress={onChangeLang} title={i18n._('Change Language')} />
+        <Button onPress={() => {}} title={translate.button} />
+        <Text>{translate.welcome(userName)}</Text>
+        <Text style={styles.title}>{translate.title}</Text>
+        <Text>{translate.canBuy(1)}</Text>
+        <Text>{translate.canBuy(15)}</Text>
       </View>
     </SafeAreaView>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -6,10 +6,12 @@ import CreatePostScreen from '../Stack/CreatePost/CreatePostScreen';
 import PostsScreen from '../Stack/Posts/PostsScreen';
 
 import {colors} from '../../../assets/constants/styles';
+import {localeContex} from '../../../context/LocaleProvider';
 
 const Stack = createNativeStackNavigator();
 
 const CreateScreen = () => {
+  const {translate} = useContext(localeContex);
   return (
     <>
       <Stack.Navigator
@@ -21,9 +23,13 @@ const CreateScreen = () => {
         <Stack.Screen
           name="Posts"
           component={PostsScreen}
-          options={{title: 'Posts'}}
+          options={{title: translate.posts}}
         />
-        <Stack.Screen name="Create Post" component={CreatePostScreen} />
+        <Stack.Screen
+          name="Create Post"
+          component={CreatePostScreen}
+          options={{title: translate.createPost}}
+        />
       </Stack.Navigator>
     </>
   );

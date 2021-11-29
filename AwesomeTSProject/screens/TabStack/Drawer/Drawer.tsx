@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
@@ -19,10 +19,12 @@ import ValidationIcon from '../../../images/icons/newspaper.svg';
 import WebViewIcon from '../../../images/icons/laptop-code.svg';
 
 import {colors} from '../../../assets/constants/styles';
+import {localeContex} from '../../../context/LocaleProvider';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerComponent = () => {
+  const {translate} = useContext(localeContex);
   return (
     <>
       <Drawer.Navigator
@@ -41,6 +43,7 @@ const DrawerComponent = () => {
           name="Posts"
           component={PostsScreen}
           options={{
+            title: translate.posts,
             drawerIcon: ({color, size}) => (
               <AllPostsIcon width={size} height={size} fill={color} />
             ),
@@ -50,6 +53,7 @@ const DrawerComponent = () => {
           name="Create Post"
           component={CreatePostScreen}
           options={{
+            title: translate.createPost,
             drawerIcon: ({color, size}) => (
               <AddedPostIcon width={size} height={size} fill={color} />
             ),
@@ -59,6 +63,7 @@ const DrawerComponent = () => {
           name="Images"
           component={ImagesScreen}
           options={{
+            title: translate.imageScreen,
             drawerIcon: ({color, size}) => (
               <ImagesIcon width={size} height={size} fill={color} />
             ),
@@ -68,6 +73,7 @@ const DrawerComponent = () => {
           name="Layouts"
           component={LayoutScreen}
           options={{
+            title: translate.layoutScreen,
             drawerIcon: ({color, size}) => (
               <LayoutIcon width={size} height={size} fill={color} />
             ),
@@ -77,6 +83,7 @@ const DrawerComponent = () => {
           name="Context"
           component={ContexScreen}
           options={{
+            title: translate.contexScreen,
             drawerIcon: ({color, size}) => (
               <InternetIcon width={size} height={size} fill={color} />
             ),
@@ -86,6 +93,7 @@ const DrawerComponent = () => {
           name="Validation"
           component={ValidationScreen}
           options={{
+            title: translate.validationScreen,
             drawerIcon: ({color, size}) => (
               <ValidationIcon width={size} height={size} fill={color} />
             ),
@@ -95,6 +103,7 @@ const DrawerComponent = () => {
           name="Web View"
           component={WebViewScreen}
           options={{
+            title: translate.webWiewScren,
             drawerIcon: ({color, size}) => (
               <WebViewIcon width={size} height={size} fill={color} />
             ),

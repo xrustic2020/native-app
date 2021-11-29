@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { placeholders } from '../../../../assets/constants/styles';
+import { colors, fonts, placeholders } from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   flex: {
@@ -7,7 +7,11 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    ...placeholders.FLEX_CENTER_CENTER,
-    backgroundColor: 'yellow',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: fonts.HEADING_SIZE,
+    color: colors.BLUE,
   },
 });

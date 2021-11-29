@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {View, Text, Platform} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import styles from './DateAndTimePicker.style';
 import SolidButton from '../../components/SolidButton/SolidButton';
+import {localeContex} from '../../context/LocaleProvider';
 
 type AndroidMode = 'date' | 'datetime' | 'time' | undefined;
 interface IProps {
@@ -14,6 +15,7 @@ interface IProps {
 const DateAndTimePicker = ({date, action}: IProps): JSX.Element => {
   const [pickerMode, setPickerMode] = useState<AndroidMode>('date');
   const [isShowPicker, setIsShowPicker] = useState(false);
+  const {translate} = useContext(localeContex);
 
   const onChangePicker = (
     event: React.SyntheticEvent,
@@ -40,9 +42,12 @@ const DateAndTimePicker = ({date, action}: IProps): JSX.Element => {
   return (
     <View>
       <View style={styles.reminder}>
-        <Text style={styles.reminderHeading}>--- Set a reminder ---</Text>
-        <SolidButton text={'Choose date'} action={showDatepicker} />
-        <SolidButton text={'Set time'} action={showTimepicker} />
+        <Text
+          style={
+            styles.reminderHeading
+          }>{`--- ${translate.reminderTitle} ---`}</Text>
+        <SolidButton text={translate.changeDateBtn} action={showDatepicker} />
+        <SolidButton text={translate.setTimeBtn} action={showTimepicker} />
       </View>
       {isShowPicker && (
         <DateTimePicker

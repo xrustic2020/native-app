@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 
 import s from './ImagesScreen-style';
+import {localeContex} from '../../../../context/LocaleProvider';
 
 const PostsScreen = () => {
+  const {translate} = useContext(localeContex);
   return (
     <View style={s.container}>
-      <Text style={s.heading}>Images Screen</Text>
+      <Text style={s.heading}>{translate.imagesTitle}</Text>
 
       <FlatList
         style={s.list}

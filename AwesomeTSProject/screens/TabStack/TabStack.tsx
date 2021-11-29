@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +15,10 @@ import ChatIcon from '../../images/icons/comments.svg';
 import MenuIcon from '../../images/icons/align-justify.svg';
 
 import {colors} from '../../assets/constants/styles';
+import {localeContex} from '../../context/LocaleProvider';
 
 const TabStack = () => {
+  const {translate} = useContext(localeContex);
   return (
     <Tab.Navigator
       initialRouteName="Stack"
@@ -29,7 +31,7 @@ const TabStack = () => {
         name="Stack"
         component={Screen}
         options={{
-          title: 'Stack',
+          title: translate.navStack,
           tabBarIcon: ({size, color}) => {
             return <AdIcon width={size} height={size} fill={color} />;
           },
@@ -39,6 +41,7 @@ const TabStack = () => {
         name="Native Stack"
         component={NativeStack}
         options={{
+          title: translate.navNativeStack,
           tabBarIcon: ({size, color}) => {
             return <BookIcon width={size} height={size} fill={color} />;
           },
@@ -48,6 +51,7 @@ const TabStack = () => {
         name="Drawer"
         component={Drawer}
         options={{
+          title: translate.navDrawer,
           tabBarIcon: ({size, color}) => {
             return <CardIcon width={size} height={size} fill={color} />;
           },
@@ -57,6 +61,7 @@ const TabStack = () => {
         name="Top Material"
         component={TopMaterial}
         options={{
+          title: translate.navTopMatherial,
           tabBarIcon: ({size, color}) => {
             return <ChatIcon width={size} height={size} fill={color} />;
           },
@@ -66,6 +71,7 @@ const TabStack = () => {
         name="Bottom Mat."
         component={BottomMaterial}
         options={{
+          title: translate.navBottomMatherial,
           tabBarIcon: ({size, color}) => {
             return <MenuIcon width={size} height={size} fill={color} />;
           },

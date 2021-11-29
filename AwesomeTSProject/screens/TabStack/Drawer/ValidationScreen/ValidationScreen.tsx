@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   View,
   Text,
@@ -19,6 +19,7 @@ import DateAndTimePicker from '../../../../components/DateAndTimePicker/DateAndT
 import Dropdown from '../../../../components/Dropdown/Dropdown';
 import RadioSelect from '../../../../components/RadioSelect/RadioSelect';
 import CustomSwitch from '../../../../components/CustomSwitch/CustomSwitch';
+import {localeContex} from '../../../../context/LocaleProvider';
 
 const schemas: {[key: string]: z.ZodString | z.ZodLiteral<true>} = {
   name: z.string().min(3),
@@ -47,6 +48,7 @@ const ValidationScreen = (): JSX.Element => {
     hobby: true,
     agreements: true,
   });
+  const {translate} = useContext(localeContex);
 
   const onChangeName = (value: string) => {
     setName(value);
@@ -109,36 +111,34 @@ const ValidationScreen = (): JSX.Element => {
       <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
       <ScrollView style={s.form}>
         <CustomInput
-          title="Name*"
+          title={translate.nameFieldPlaceholder}
           value={name}
           onChange={onChangeName}
           valid={!validation.name}
-          validationMessage={'Should be at least 3 characters'}
+          validationMessage={translate.nameFieldValidMessage}
         />
         <CustomInput
-          title="Email*"
+          title={translate.emailFieldPlaceholder}
           value={email}
           onChange={onChangeEmail}
           valid={!validation.email}
-          validationMessage={'Invalid Email'}
+          validationMessage={translate.emailFieldValidMessage}
           keyboardType="email-address"
         />
         <CustomInput
-          title="Phone*"
+          title={translate.phoneFieldPlaceholder}
           value={phone}
           onChange={onChangePhone}
           valid={!validation.phone}
-          validationMessage={'Should be at least 10 characters'}
+          validationMessage={translate.phoneFieldValidMessage}
           keyboardType="phone-pad"
         />
         <CustomInput
-          title="Password*"
+          title={translate.passwordFieldPlaceholder}
           value={password}
           onChange={onChangePassword}
           valid={!validation.password}
-          validationMessage={
-            'Should be at least 8 characters (one upper and one lowercase letter, and at least one number)'
-          }
+          validationMessage={translate.passwordFieldValidMessage}
           secureTextEntry={true}
         />
 
@@ -160,7 +160,7 @@ const ValidationScreen = (): JSX.Element => {
       </ScrollView>
 
       <Pressable style={s.button} onPress={handleSubmit}>
-        <Text style={s.btnTitle}>SEND</Text>
+        <Text style={s.btnTitle}>{translate.sendBtn}</Text>
       </Pressable>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
         <View style={s.modal}>
