@@ -10,6 +10,7 @@ export default class LocaleProvider extends Component {
   state = {
     language: LANGUAGE.en,
     translate: en,
+    showLanguageSwitcher: true,
     changeLanguage: (newLanguage: keyof typeof LANGUAGE) => {
       let translate: ITranslate;
       let language: keyof typeof LANGUAGE;
@@ -28,6 +29,11 @@ export default class LocaleProvider extends Component {
       }
       this.setState(prev => ({...prev, language, translate}));
     },
+    toggleLanguageSwitcher: () =>
+      this.setState(prev => ({
+        ...prev,
+        showLanguageSwitcher: !prev.showLanguageSwitcher,
+      })),
   };
 
   render() {

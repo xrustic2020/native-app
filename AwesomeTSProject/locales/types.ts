@@ -13,5 +13,7 @@ export interface ITranslate {
 export interface IState {
   language: keyof typeof LANGUAGE;
   translate: ITranslate;
+  showLanguageSwitcher: boolean;
   changeLanguage: (newLanguage: keyof typeof LANGUAGE) => void;
+  toggleLanguageSwitcher: () => void;
 }

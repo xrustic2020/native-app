@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const Field = ({name, indent = 0}: IProps) => {
-  const {translate} = useContext(localeContex);
+  const {translate, toggleLanguageSwitcher} = useContext(localeContex);
   return (
     <View style={{marginBottom: indent}}>
       <Text style={s.label}>{name}</Text>
@@ -18,6 +18,8 @@ const Field = ({name, indent = 0}: IProps) => {
         style={s.input}
         placeholder={translate.fieldPlaceholder(name)}
         secureTextEntry={name === translate.password}
+        onFocus={toggleLanguageSwitcher}
+        onBlur={toggleLanguageSwitcher}
       />
     </View>
   );

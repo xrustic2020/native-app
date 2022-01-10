@@ -12,6 +12,7 @@ export const colors = {
   WHITE: '#ffffff',
   RED: '#ff0000',
   GREEN: 'limegreen',
+  LIGHT_GREEN: '#90ee90',
 };
 
 export const fonts = {

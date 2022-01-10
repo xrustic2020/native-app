@@ -22,6 +22,7 @@ export default StyleSheet.create({
     borderColor: colors.WHITE,
     color: colors.WHITE,
     paddingLeft: 46,
+    paddingVertical: 18,
   },
   icon: {
     position: 'absolute',

@@ -4,13 +4,14 @@ export default StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '40%',
+    width: '45%',
     position: 'absolute',
     top: 20,
     right: 20,
     backgroundColor: 'white',
-    paddingTop: 14,
-    paddingHorizontal: 14,
+    paddingTop: 10,
+    paddingHorizontal: 10,
     borderRadius: 6,
+    zIndex: 10,
   },
 });

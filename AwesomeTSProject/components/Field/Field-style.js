@@ -12,7 +12,7 @@ export default StyleSheet.create({
     ...placeholders.BORDER_DEFAULT_PARAMS,
     borderColor: colors.GREY,
     color: colors.GREY,
-    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING,
+    padding: indents.MAIN_HORIZONTAL_PADING,
   },
   label: {
     fontSize: fonts.MAIN_SIZE,
