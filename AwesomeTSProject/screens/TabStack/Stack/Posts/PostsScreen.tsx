@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import {Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import AuthContext from '../../../../context/AuthContext';
+import {localeContex} from '../../../../context/LocaleProvider';
 import Icon from '../../../../images/icons/ad.svg';
 
 import NavigateButton from '../../../../components/NavigateButton/NavigateButton';
@@ -15,20 +16,24 @@ interface IProps {
 
 const Posts = ({navigation}: IProps) => {
   const context = useContext(AuthContext);
+  const {translate} = useContext(localeContex);
   return (
     <SafeAreaView style={s.container}>
-      <Text style={s.heading}>My Posts</Text>
-      <SolidButton text={'logout'} action={context.logOut} />
+      <Text style={s.heading}>{translate.postsTitle}</Text>
+      <SolidButton text={translate.logout} action={context.logOut} />
       <SolidButton
-        text={'modals View'}
+        text={translate.viewModal}
         action={() => navigation.navigate('TransparentModal')}
       />
       <SolidButton
-        text={'open native Modal'}
+        text={translate.nativeModal}
         action={() => navigation.navigate('Modal')}
       />
       <Icon fill={colors.BLACK} width={100} height={100} style={s.icon} />
-      <NavigateButton text={'Create Post'} action={navigation.navigate} />
+      <NavigateButton
+        text={translate.createPost}
+        action={() => navigation.navigate('Create Post')}
+      />
     </SafeAreaView>
   );
 };

@@ -5,10 +5,12 @@ import ctx from '../../../../context/AppContext';
 
 import SolidButton from '../../../../components/SolidButton/SolidButton';
 import SelectButton from '../../../../components/SelectButton/SelectButton';
+import {localeContex} from '../../../../context/LocaleProvider';
 
 const ContextScreen = () => {
   const [selectedValue, setSelectedValue] = useState(2);
   const {data, error, loading, getUserData, clearData} = useContext(ctx);
+  const {translate} = useContext(localeContex);
 
   const blockSizes = ['0', '100%', '49%', '32%'];
   const empty = () => {};
@@ -16,7 +18,7 @@ const ContextScreen = () => {
 
   return (
     <View style={s.container}>
-      <Text style={s.heading}>Get Users Lists</Text>
+      <Text style={s.heading}>{translate.coontextTitle}</Text>
       <View style={s.select}>
         <SelectButton
           value={1}
@@ -35,9 +37,9 @@ const ContextScreen = () => {
         />
       </View>
       {isHasData ? (
-        <SolidButton text={'clear list'} action={clearData} />
+        <SolidButton text={translate.clearListBtn} action={clearData} />
       ) : (
-        <SolidButton text={'get users'} action={getUserData} />
+        <SolidButton text={translate.getUserBtn} action={getUserData} />
       )}
 
       {isHasData && (

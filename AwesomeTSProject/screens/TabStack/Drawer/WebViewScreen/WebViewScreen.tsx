@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text, ActivityIndicator, useWindowDimensions} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {colors} from '../../../../assets/constants/styles';
+import {localeContex} from '../../../../context/LocaleProvider';
 
 import styles from './WebViewScreen.style';
 
@@ -27,13 +28,14 @@ const INJECTED_JAVASCRIPT = ` document.body.style.backgroundColor = '#ee82ee';
       true; // note: this is required, or you'll sometimes get silent failures`;
 
 const WebViewScreen = (): JSX.Element => {
+  const {translate} = useContext(localeContex);
   const {height, width} = useWindowDimensions();
   const aspectRatio = height / width;
   const isPad = aspectRatio < 1.6;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Hello, this is a WebView Screen</Text>
+      <Text style={styles.title}>{translate.webViewTitle}</Text>
       <WebView
         source={{uri: 'https://infinite.red'}}
         // source={{html: '<h1> Heading with HTML, easy! </h1>'}}

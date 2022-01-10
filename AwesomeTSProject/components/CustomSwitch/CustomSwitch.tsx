@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Switch, Text} from 'react-native';
 
 import styles from './CustomSwitch.style';
 import {colors} from '../../assets/constants/styles';
+import {localeContex} from '../../context/LocaleProvider';
 
 interface IProps {
   value: boolean;
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 const CustomSwitch = ({value, action, valid}: IProps): JSX.Element => {
+  const {translate} = useContext(localeContex);
   const toggleSwitch = () => {
     action(!value);
   };
@@ -29,7 +31,7 @@ const CustomSwitch = ({value, action, valid}: IProps): JSX.Element => {
           styles.agreedText,
           valid ? {color: colors.GREY} : {color: colors.RED},
         ]}>
-        I agree to the terms of service
+        {translate.agreedTerms}
       </Text>
     </View>
   );

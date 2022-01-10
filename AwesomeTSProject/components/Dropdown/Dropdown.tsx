@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {TouchableOpacity, Text, View} from 'react-native';
 
 import AngleDownIcon from '../../images/icons/angle-down.svg';
 import styles from './Dropdown.style';
 import {colors} from '../../assets/constants/styles';
+import {localeContex} from '../../context/LocaleProvider';
 
 const selectData = [
   {id: '1', value: 'Music'},
@@ -25,6 +26,7 @@ interface IListItem {
 }
 
 const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
+  const {translate} = useContext(localeContex);
   const [isShowSelect, setIsShowSelect] = useState(false);
 
   const onPressHandler = (item: IListItem) => {
@@ -46,7 +48,7 @@ const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
         style={styles.selectIcon}
       />
       <Text style={styles.selectText}>
-        {value ? value : 'Select your hobby*'}
+        {value ? value : translate.hobbySelectPlaceholder}
       </Text>
       <View style={[styles.selectList, !isShowSelect && styles.showSelectList]}>
         {selectData.map(item => (

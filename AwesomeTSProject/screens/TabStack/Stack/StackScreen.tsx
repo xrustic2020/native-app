@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -8,10 +8,12 @@ import ModalScreen from '../ModalScreen/ModalScreen';
 import Modal from '../NativeModal/NativeModal';
 
 import {colors} from '../../../assets/constants/styles';
+import {localeContex} from '../../../context/LocaleProvider';
 
 const Stack = createStackNavigator();
 
 const CreateScreen = () => {
+  const {translate} = useContext(localeContex);
   return (
     <>
       <Stack.Navigator
@@ -25,10 +27,16 @@ const CreateScreen = () => {
             name="Posts"
             component={PostsScreen}
             options={{
-              title: 'Posts',
+              title: translate.posts,
             }}
           />
-          <Stack.Screen name="Create Post" component={CreatePostScreen} />
+          <Stack.Screen
+            name="Create Post"
+            component={CreatePostScreen}
+            options={{
+              title: translate.createPost,
+            }}
+          />
         </Stack.Group>
         <Stack.Group screenOptions={{presentation: 'transparentModal'}}>
           <Stack.Screen

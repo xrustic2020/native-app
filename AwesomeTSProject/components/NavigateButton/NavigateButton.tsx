@@ -10,10 +10,7 @@ interface IProps {
 
 const NavigateButton = ({text, action}: IProps) => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.5}
-      style={s.btn}
-      onPress={() => action(`${text}`)}>
+    <TouchableOpacity activeOpacity={0.5} style={s.btn} onPress={action}>
       <Text style={s.btnTitle}>{text.toUpperCase()}</Text>
     </TouchableOpacity>
   );
