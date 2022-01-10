@@ -1,4 +1,4 @@
-import {View, Animated, Easing, useWindowDimensions} from 'react-native';
+import {View, Animated, useWindowDimensions} from 'react-native';
 import React, {useRef} from 'react';
 import styles from './AnimationScreen.style';
 import {colors} from '../../../../assets/constants/styles';
@@ -92,7 +92,7 @@ const AnimationThree = () => {
             ],
             backgroundColor: animation.interpolate({
               inputRange: [0, 50, 100],
-              outputRange: [colors.LIGHT_VIOLET, 'grey', colors.RED],
+              outputRange: [colors.LIGHT_VIOLET, colors.LIGHT_GREY, colors.RED],
             }),
           },
         ]}>

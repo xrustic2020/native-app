@@ -13,6 +13,7 @@ export const colors = {
   RED: '#ff0000',
   GREEN: 'limegreen',
   LIGHT_GREEN: '#90ee90',
+  ORANGE: '#ffa500',
 };
 
 export const fonts = {

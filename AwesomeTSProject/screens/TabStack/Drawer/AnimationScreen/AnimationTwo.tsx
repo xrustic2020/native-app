@@ -103,7 +103,11 @@ const AnimationTwo = () => {
             ],
             backgroundColor: animation.interpolate({
               inputRange: [0, 50, 100],
-              outputRange: [colors.LIGHT_BLUE, 'orange', 'green'],
+              outputRange: [
+                colors.LIGHT_BLUE,
+                colors.ORANGE,
+                colors.LIGHT_GREEN,
+              ],
             }),
           },
         ]}>

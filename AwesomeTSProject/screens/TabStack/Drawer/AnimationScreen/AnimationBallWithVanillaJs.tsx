@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Animated, PanResponder, StyleSheet, Text} from 'react-native';
-import {placeholders} from '../../../../assets/constants/styles';
+import {colors, placeholders} from '../../../../assets/constants/styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: colors.BLUE,
     borderRadius: 10,
     padding: 10,
     height: 200,
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   ball: {
-    backgroundColor: 'lime',
+    backgroundColor: colors.LIGHT_GREEN,
     height: 100,
     width: 100,
     borderRadius: 50,
@@ -42,10 +42,6 @@ const AnimationBallWithVanillaJs = () => {
       position.flattenOffset();
     },
   });
-
-  useEffect(() => {
-    // new Array(5000).fill(0).map(() => console.log('JS поток занят!'));
-  }, []);
 
   return (
     <View style={styles.container}>
