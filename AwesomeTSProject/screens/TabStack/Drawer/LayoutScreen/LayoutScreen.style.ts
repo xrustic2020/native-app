@@ -1,5 +1,10 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts, placeholders } from '../../../../assets/constants/styles';
+import {StyleSheet, Platform} from 'react-native';
+import {
+  colors,
+  fonts,
+  indents,
+  placeholders,
+} from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   container: {
@@ -29,6 +34,11 @@ export default StyleSheet.create({
     top: 18,
     left: 14,
   },
+  innerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING,
+  },
   heading: {
     fontFamily: fonts.IRIS_GROVER,
     marginBottom: 50,
@@ -36,14 +46,25 @@ export default StyleSheet.create({
     color: colors.BLACK,
   },
   span: {
-    color: 'red',
+    color: colors.RED,
   },
   box: {
     width: 100,
     height: 100,
-    backgroundColor: '#5040ff',
+    marginBottom: 40,
+    backgroundColor: colors.BLUE,
     elevation: 10,
-    shadowColor: '#52006A',
+    shadowColor: colors.VIOLET,
+    ...Platform.select({
+      ios: {
+        shadowOffset: {
+          width: -6,
+          height: 6,
+        },
+        shadowOpacity: 0.8,
+        shadowRadius: 10,
+      },
+    }),
   },
   phone: {
     marginBottom: 20,

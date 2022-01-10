@@ -1,10 +1,5 @@
-import { StyleSheet } from 'react-native';
-import {
-  colors,
-  placeholders,
-  sizes,
-  fonts,
-} from '../../../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, placeholders, fonts} from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   container: {
@@ -12,8 +7,9 @@ export default StyleSheet.create({
     ...placeholders.FLEX_CENTER_CENTER,
   },
   heading: {
+    paddingTop: 10,
     marginBottom: 50,
-    fontWeight: fonts.WEIGHT_SIZE,
+    fontWeight: fonts.WEIGHT_SIZE.toString(),
     fontSize: fonts.HEADING_SIZE,
   },
   list: {

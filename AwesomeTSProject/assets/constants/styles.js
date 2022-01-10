@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export const colors = {
   VIOLET: '#841584',
@@ -20,7 +20,7 @@ export const fonts = {
   MAIN_SIZE: 18,
   HEADING_SIZE: 24,
   WEIGHT_SIZE: '600',
-  IRIS_GROVER: 'irishgrover',
+  IRIS_GROVER: Platform.OS === 'android' ? 'irishgrover' : 'Irish Grover',
 };
 
 export const indents = {

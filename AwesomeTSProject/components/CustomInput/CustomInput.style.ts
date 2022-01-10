@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts, placeholders } from '../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, fonts, placeholders} from '../../assets/constants/styles';
 
 export default StyleSheet.create({
   inputContainer: {
@@ -23,6 +23,7 @@ export default StyleSheet.create({
   textInput: {
     ...placeholders.BORDER_DEFAULT_PARAMS,
     paddingHorizontal: 16,
+    paddingVertical: 10,
     borderColor: colors.GREY,
     color: colors.GREY,
     fontSize: fonts.MAIN_SIZE,

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   colors,
   fonts,
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     marginVertical: 20,
     textAlign: 'center',
     fontSize: fonts.HEADING_SIZE,
-    fontWeight: fonts.WEIGHT_SIZE,
+    fontWeight: fonts.WEIGHT_SIZE.toString(),
   },
   select: {
     flexDirection: 'row',

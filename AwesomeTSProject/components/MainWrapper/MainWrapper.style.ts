@@ -1,15 +1,18 @@
-import { StyleSheet } from 'react-native';
-import { indents } from '../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, indents} from '../../assets/constants/styles';
 
 export default StyleSheet.create({
+  saveContainer: {
+    flex: 1,
+  },
   backgroundStyle: {
     flex: 1,
     textAlign: 'center',
+    justifyContent: 'center',
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
-    justifyContent: 'center',
     paddingHorizontal: indents.MAIN_HORIZONTAL_PADING * 2,
   },
 });

@@ -6,7 +6,7 @@ import styles from './DateAndTimePicker.style';
 import SolidButton from '../../components/SolidButton/SolidButton';
 import {localeContex} from '../../context/LocaleProvider';
 
-type AndroidMode = 'date' | 'datetime' | 'time' | undefined;
+type AndroidMode = 'date' | 'datetime' | 'time';
 interface IProps {
   date: Date;
   action: (date: Date) => void;
@@ -33,6 +33,7 @@ const DateAndTimePicker = ({date, action}: IProps): JSX.Element => {
 
   const showDatepicker = () => {
     showMode('date');
+    Platform.OS === 'ios' ? showMode('datetime') : showMode('date');
   };
 
   const showTimepicker = () => {

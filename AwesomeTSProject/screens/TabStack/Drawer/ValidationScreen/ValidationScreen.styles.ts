@@ -1,8 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   colors,
   fonts,
-  indents,
   placeholders,
   sizes,
 } from '../../../../assets/constants/styles';
