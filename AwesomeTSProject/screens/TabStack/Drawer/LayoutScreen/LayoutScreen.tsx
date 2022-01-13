@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, StatusBar, Switch} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  StatusBar,
+  Switch,
+  StyleSheet,
+} from 'react-native';
 import SearchIcon from '../../../../images/icons/search.svg';
 
 import {colors} from '../../../../assets/constants/styles';
 
-import s from './LayoutScreen-style';
+import styles from './LayoutScreen.style';
 
 const PostsScreen = () => {
   const [isActiveSwitch, setIsActiveSwitch] = useState(false);
@@ -14,38 +21,40 @@ const PostsScreen = () => {
   };
 
   return (
-    <View style={s.container}>
+    <View style={styles.container}>
       <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
-      <View style={s.header}>
-        <View style={s.headerWrapper}>
+      <View style={styles.header}>
+        <View style={styles.headerWrapper}>
           <SearchIcon
             width={20}
             height={20}
             fill={colors.WHITE}
-            style={s.icon}
+            style={styles.icon}
           />
-          <TextInput style={s.input} />
+          <TextInput style={styles.input} />
         </View>
       </View>
-      <Text style={s.heading} numberOfLines={1}>
-        Lorem <Text style={s.span}>ipsum</Text> dolor sit amet consectetur
-        adipisicing elit. Quo, facere!
-      </Text>
-      <Text style={s.heading} numberOfLines={1} ellipsizeMode={'head'}>
-        Lorem <Text style={s.span}>ipsum</Text> dolor sit amet consectetur
-        adipisicing elit. Quo, facere!
-      </Text>
-      <Text style={s.phone} dataDetectorType={'phoneNumber'}>
-        063 777 22 11
-      </Text>
-      <View style={s.box} />
-      <Switch
-        trackColor={{false: colors.GREY, true: colors.LIGHT_VIOLET}}
-        thumbColor={'#f4f3f4'}
-        ios_backgroundColor={colors.GREY}
-        onValueChange={toggleSwitch}
-        value={isActiveSwitch}
-      />
+      <View style={styles.innerContainer}>
+        <Text style={styles.heading} numberOfLines={1}>
+          Lorem <Text style={styles.span}>ipsum</Text> dolor sit amet
+          consectetur adipisicing elit. Quo, facere!
+        </Text>
+        <Text style={styles.heading} numberOfLines={1} ellipsizeMode={'head'}>
+          Lorem <Text style={styles.span}>ipsum</Text> dolor sit amet
+          consectetur adipisicing elit. Quo, facere!
+        </Text>
+        <Text style={styles.phone} dataDetectorType={'phoneNumber'}>
+          063 777 22 11
+        </Text>
+        <View style={styles.box} />
+        <Switch
+          trackColor={{false: colors.GREY, true: colors.LIGHT_VIOLET}}
+          thumbColor={'#f4f3f4'}
+          ios_backgroundColor={colors.GREY}
+          onValueChange={toggleSwitch}
+          value={isActiveSwitch}
+        />
+      </View>
     </View>
   );
 };

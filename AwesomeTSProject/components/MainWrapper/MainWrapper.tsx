@@ -4,9 +4,10 @@ import {
   ImageBackground,
   Keyboard,
   TouchableWithoutFeedback,
+  SafeAreaView,
 } from 'react-native';
 
-import s from './MainWrapper-style';
+import styles from './MainWrapper.style';
 
 interface IProps {
   children: ReactNode;
@@ -14,15 +15,15 @@ interface IProps {
 
 const MainWrapper = ({children}: IProps) => {
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={s.backgroundStyle}>
-        <ImageBackground
-          source={require('../../images/background.jpg')}
-          style={s.backgroundImage}>
-          {children}
-        </ImageBackground>
-      </View>
-    </TouchableWithoutFeedback>
+    <ImageBackground
+      source={require('../../images/background.jpg')}
+      style={styles.backgroundImage}>
+      <SafeAreaView style={styles.saveContainer}>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+          <View style={styles.backgroundStyle}>{children}</View>
+        </TouchableWithoutFeedback>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 

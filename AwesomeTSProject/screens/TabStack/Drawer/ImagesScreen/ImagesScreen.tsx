@@ -1,17 +1,17 @@
 import React, {useContext} from 'react';
 import {View, Text, FlatList, Image} from 'react-native';
 
-import s from './ImagesScreen-style';
+import styles from './ImagesScreen.style';
 import {localeContex} from '../../../../context/LocaleProvider';
 
 const PostsScreen = () => {
   const {translate} = useContext(localeContex);
   return (
-    <View style={s.container}>
-      <Text style={s.heading}>{translate.imagesTitle}</Text>
+    <View style={styles.container}>
+      <Text style={styles.heading}>{translate.imagesTitle}</Text>
 
       <FlatList
-        style={s.list}
+        style={styles.list}
         data={[
           {path: require('../../../../images/nature11.png'), key: '1'},
           {
@@ -36,7 +36,7 @@ const PostsScreen = () => {
         renderItem={({item}) => {
           return (
             <View>
-              <Image style={s.imga} source={item?.path} />
+              <Image style={styles.imga} source={item?.path} />
             </View>
           );
         }}

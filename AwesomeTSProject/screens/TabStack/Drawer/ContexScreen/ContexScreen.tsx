@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {View, Text, FlatList, Alert} from 'react-native';
-import s from './ContexScreen-style';
+import styles from './ContexScreen.style';
 import ctx from '../../../../context/AppContext';
 
 import SolidButton from '../../../../components/SolidButton/SolidButton';
@@ -17,9 +17,9 @@ const ContextScreen = () => {
   const isHasData = data.length > 0;
 
   return (
-    <View style={s.container}>
-      <Text style={s.heading}>{translate.coontextTitle}</Text>
-      <View style={s.select}>
+    <View style={styles.container}>
+      <Text style={styles.heading}>{translate.coontextTitle}</Text>
+      <View style={styles.select}>
         <SelectButton
           value={1}
           action={isHasData ? empty : setSelectedValue}
@@ -48,12 +48,12 @@ const ContextScreen = () => {
           renderItem={({item}) => {
             return (
               <View style={[s.item, {width: blockSizes[selectedValue]}]}>
-                <View style={s.textWrapper}>
-                  <Text style={s.name}>{item.name}</Text>
+                <View style={styles.textWrapper}>
+                  <Text style={styles.name}>{item.name}</Text>
                 </View>
 
-                <View style={s.textWrapper}>
-                  <Text style={s.email}>{item.email}</Text>
+                <View style={styles.textWrapper}>
+                  <Text style={styles.email}>{item.email}</Text>
                 </View>
               </View>
             );

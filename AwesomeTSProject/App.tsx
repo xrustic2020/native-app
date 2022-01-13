@@ -8,7 +8,8 @@
  * @format
  */
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useEffect} from 'react';
+import SplashScreen from 'react-native-splash-screen';
 
 import {NavigationContainer} from '@react-navigation/native';
 import AuthProvider from './context/AuthProvider';
@@ -18,6 +19,10 @@ import LocaleProvider from './context/LocaleProvider';
 import AuthCheck from './components/AuthCheck/AuthCheck';
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <AuthProvider>
       <AppProvider>

@@ -6,7 +6,8 @@ import {LANGUAGE} from '../../locales/constants';
 import {localeContex} from '../../context/LocaleProvider';
 
 const LanguageSwitch = (): JSX.Element => {
-  const {language, changeLanguage} = useContext(localeContex);
+  const {language, changeLanguage, showLanguageSwitcher} =
+    useContext(localeContex);
 
   const onChangeLanguage = (lang: keyof typeof LANGUAGE) => {
     if (language === LANGUAGE[lang]) {
@@ -24,7 +25,7 @@ const LanguageSwitch = (): JSX.Element => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, !showLanguageSwitcher && {opacity: 0}]}>
       <TouchableOpacity
         activeOpacity={0.8}
         style={[btnSelect.btn, language === LANGUAGE.en && btnSelect.active]}

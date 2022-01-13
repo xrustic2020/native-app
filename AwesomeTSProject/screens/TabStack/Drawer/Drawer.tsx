@@ -9,6 +9,7 @@ import LayoutScreen from './LayoutScreen/LayoutScreen';
 import ContexScreen from './ContexScreen/ContexScreen';
 import ValidationScreen from './ValidationScreen/ValidationScreen';
 import WebViewScreen from './WebViewScreen/WebViewScreen';
+import AnimationScreen from './AnimationScreen/AnimationScreen';
 
 import AllPostsIcon from '../../../images/icons/align-center.svg';
 import AddedPostIcon from '../../../images/icons/plus-square.svg';
@@ -17,6 +18,7 @@ import LayoutIcon from '../../../images/icons/align-right.svg';
 import InternetIcon from '../../../images/icons/at.svg';
 import ValidationIcon from '../../../images/icons/newspaper.svg';
 import WebViewIcon from '../../../images/icons/laptop-code.svg';
+import AngellistIcon from '../../../images/icons/angellist-brands.svg';
 
 import {colors} from '../../../assets/constants/styles';
 import {localeContex} from '../../../context/LocaleProvider';
@@ -106,6 +108,16 @@ const DrawerComponent = () => {
             title: translate.webWiewScren,
             drawerIcon: ({color, size}) => (
               <WebViewIcon width={size} height={size} fill={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Animation"
+          component={AnimationScreen}
+          options={{
+            title: translate.animationScreenTitile,
+            drawerIcon: ({color, size}) => (
+              <AngellistIcon width={size} height={size} fill={color} />
             ),
           }}
         />

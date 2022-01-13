@@ -12,7 +12,7 @@ import {z} from 'zod';
 
 import {SUBSCRIPTION} from '../../../../assets/constants/variablles';
 import {colors} from '../../../../assets/constants/styles';
-import s from './ValidationScreen.styles';
+import styles from './ValidationScreen.styles';
 
 import CustomInput from '../../../../components/CustomInput/CustomInput';
 import DateAndTimePicker from '../../../../components/DateAndTimePicker/DateAndTimePicker';
@@ -107,9 +107,9 @@ const ValidationScreen = (): JSX.Element => {
   };
 
   return (
-    <View style={s.container}>
+    <View style={styles.container}>
       <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
-      <ScrollView style={s.form}>
+      <ScrollView style={styles.form}>
         <CustomInput
           title={translate.nameFieldPlaceholder}
           value={name}
@@ -159,12 +159,12 @@ const ValidationScreen = (): JSX.Element => {
         />
       </ScrollView>
 
-      <Pressable style={s.button} onPress={handleSubmit}>
-        <Text style={s.btnTitle}>{translate.sendBtn}</Text>
+      <Pressable style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.btnTitle}>{translate.sendBtn}</Text>
       </Pressable>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
-        <View style={s.modal}>
-          <View style={s.modalContentBox}>
+        <View style={styles.modal}>
+          <View style={styles.modalContentBox}>
             <Text>{`Name: ${name}`}</Text>
             <Text>{`Email: ${email}`}</Text>
             <Text>{`Phone: ${phone}`}</Text>
@@ -175,8 +175,8 @@ const ValidationScreen = (): JSX.Element => {
             <Text>{`Agreements: ${agreements}`}</Text>
             <TouchableOpacity
               onPress={() => setModalVisible(!modalVisible)}
-              style={s.closeBtn}>
-              <Text style={s.modalBtnText}>CLOSE</Text>
+              style={styles.closeBtn}>
+              <Text style={styles.modalBtnText}>CLOSE</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -13,8 +14,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.reactcommunity.rndatetimepicker.RNDateTimePickerPackage;
 
-// import com.facebook.react.bridge.JSIModulePackage;
-// import com.swmansion.reanimated.ReanimatedJSIModulePackage;
+import com.facebook.react.bridge.JSIModulePackage;
+import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -39,10 +40,10 @@ public class MainApplication extends Application implements ReactApplication {
           return "index";
         }
 
-      //   @Override
-      //   protected JSIModulePackage getJSIModulePackage() {
-      //     return new ReanimatedJSIModulePackage();
-      // }
+        @Override
+        protected JSIModulePackage getJSIModulePackage() {
+          return new ReanimatedJSIModulePackage();
+      }
       };
 
   @Override
