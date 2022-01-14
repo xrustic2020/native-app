@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { indents } from '../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {indents} from '../../assets/constants/styles';
 
 export default StyleSheet.create({
   radio: {

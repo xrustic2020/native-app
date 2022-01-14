@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {View, Text, ActivityIndicator, useWindowDimensions} from 'react-native';
 import {WebView} from 'react-native-webview';
-import {colors} from '../../../../assets/constants/styles';
+import {colors, placeholders} from '../../../../assets/constants/styles';
 import {localeContex} from '../../../../context/LocaleProvider';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 import styles from './WebViewScreen.style';
 
@@ -29,13 +30,18 @@ const INJECTED_JAVASCRIPT = ` document.body.style.backgroundColor = '#ee82ee';
 
 const WebViewScreen = (): JSX.Element => {
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
   const {height, width} = useWindowDimensions();
   const aspectRatio = height / width;
   const isPad = aspectRatio < 1.6;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{translate.webViewTitle}</Text>
+    <View
+      style={[styles.container, isDarkTheme && placeholders.DARK_BACKGROUND]}>
+      <Text
+        style={[styles.title, isDarkTheme && placeholders.WHITE_TEXT_COLOR]}>
+        {translate.webViewTitle}
+      </Text>
       <WebView
         source={{uri: 'https://infinite.red'}}
         // source={{html: '<h1> Heading with HTML, easy! </h1>'}}

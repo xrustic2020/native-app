@@ -1,12 +1,14 @@
 import {View, Animated, Easing, useWindowDimensions} from 'react-native';
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
 import styles from './AnimationScreen.style';
 import {colors} from '../../../../assets/constants/styles';
 import AnimNavigateItem from './AnimNavigateItem';
 import BoneIcon from '../../../../images/icons/bone-solid.svg';
 import {IAnimateSettings} from './types';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 const AnimationTwo = () => {
+  const {isDarkTheme} = useContext(themeContext);
   const DC = useWindowDimensions();
   const animation = useRef(new Animated.Value(0)).current;
 
@@ -111,7 +113,11 @@ const AnimationTwo = () => {
             }),
           },
         ]}>
-        <BoneIcon width={100} height={100} fill={colors.WHITE} />
+        <BoneIcon
+          width={100}
+          height={100}
+          fill={isDarkTheme ? colors.BLACK : colors.WHITE}
+        />
       </Animated.View>
     </View>
   );

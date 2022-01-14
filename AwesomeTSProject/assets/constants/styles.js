@@ -5,7 +5,9 @@ export const colors = {
   LIGHT_VIOLET: '#ee82ee',
   NEUTRAL_VIOLET: '#c6cbef',
   GREY: '#808080',
+  GREY_MORE: '#505050',
   LIGHT_GREY: '#d3d3d3',
+  WHITE_MORE: '#f9f9f9',
   BLUE: '#1e90ff',
   LIGHT_BLUE: '#87ceeb',
   BLACK: '#000000',
@@ -43,5 +45,11 @@ export const placeholders = StyleSheet.create({
   BORDER_DEFAULT_PARAMS: {
     borderWidth: 2,
     borderRadius: 6,
+  },
+  WHITE_TEXT_COLOR: {
+    color: colors.WHITE,
+  },
+  DARK_BACKGROUND: {
+    backgroundColor: colors.GREY_MORE,
   },
 });

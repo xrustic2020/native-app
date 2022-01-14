@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
 import {Animated} from 'react-native';
 
 import styles from './AnimationScreen.style';
@@ -9,16 +9,21 @@ import FillingLayout from './FillingLayout';
 import AnimationBallWithVanillaJs from './AnimationBallWithVanillaJs';
 import AnimationBallWithReanimate from './AnimationBallWithReanimate';
 
+import {themeContext} from '../../../../context/ThemeProvider';
+import {colors, placeholders} from '../../../../assets/constants/styles';
+
 const AnimationScreen = () => {
+  const {isDarkTheme} = useContext(themeContext);
   const animatedValue = useRef(new Animated.Value(0)).current;
   return (
     <Animated.ScrollView
       style={[
         styles.container,
+        isDarkTheme && placeholders.DARK_BACKGROUND,
         {
           backgroundColor: animatedValue.interpolate({
             inputRange: [1050, 1500],
-            outputRange: ['white', 'red'],
+            outputRange: [isDarkTheme ? colors.GREY_MORE : 'white', 'red'],
             extrapolate: 'clamp',
           }),
         },

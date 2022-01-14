@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors, placeholders } from '../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, placeholders} from '../../assets/constants/styles';
 
 export default StyleSheet.create({
   container: {
@@ -23,6 +23,9 @@ export default StyleSheet.create({
   },
   selected: {
     borderColor: colors.VIOLET,
+  },
+  selected_dark: {
+    borderColor: colors.LIGHT_VIOLET,
   },
   text: {
     marginLeft: 10,

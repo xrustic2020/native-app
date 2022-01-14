@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts, placeholders } from '../../../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, fonts} from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   flex: {
@@ -9,6 +9,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     alignItems: 'center',
+    backgroundColor: colors.WHITE_MORE,
   },
   title: {
     fontSize: fonts.HEADING_SIZE,

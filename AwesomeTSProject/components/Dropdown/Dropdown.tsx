@@ -3,8 +3,9 @@ import {TouchableOpacity, Text, View} from 'react-native';
 
 import AngleDownIcon from '../../images/icons/angle-down.svg';
 import styles from './Dropdown.style';
-import {colors} from '../../assets/constants/styles';
+import {colors, placeholders} from '../../assets/constants/styles';
 import {localeContex} from '../../context/LocaleProvider';
+import {themeContext} from '../../context/ThemeProvider';
 
 const selectData = [
   {id: '1', value: 'Music'},
@@ -27,6 +28,7 @@ interface IListItem {
 
 const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
   const [isShowSelect, setIsShowSelect] = useState(false);
 
   const onPressHandler = (item: IListItem) => {
@@ -34,7 +36,11 @@ const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
     setIsShowSelect(false);
   };
 
-  const colorIcon = valid ? colors.GREY : colors.RED;
+  const colorIcon = valid
+    ? isDarkTheme
+      ? colors.WHITE
+      : colors.GREY
+    : colors.RED;
 
   return (
     <TouchableOpacity
@@ -47,7 +53,11 @@ const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
         fill={colorIcon}
         style={styles.selectIcon}
       />
-      <Text style={styles.selectText}>
+      <Text
+        style={[
+          styles.selectText,
+          isDarkTheme && placeholders.WHITE_TEXT_COLOR,
+        ]}>
         {value ? value : translate.hobbySelectPlaceholder}
       </Text>
       <View style={[styles.selectList, !isShowSelect && styles.showSelectList]}>
@@ -57,7 +67,9 @@ const Dropdown = ({value, action, valid}: IProps): JSX.Element => {
             activeOpacity={0.5}
             onPress={() => onPressHandler(item)}
             style={styles.listItem}>
-            <Text>{item.value}</Text>
+            <Text style={isDarkTheme && placeholders.WHITE_TEXT_COLOR}>
+              {item.value}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>

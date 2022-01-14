@@ -1,7 +1,6 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {
   colors,
-  fonts,
   placeholders,
   sizes,
   indents,
@@ -16,8 +15,14 @@ export default StyleSheet.create({
     paddingHorizontal: indents.MAIN_HORIZONTAL_PADING * 2,
     marginBottom: 10,
   },
+  btn_dark: {
+    borderColor: colors.LIGHT_VIOLET,
+  },
   btnTitle: {
-    fontWeight: fonts.WEIGHT_SIZE,
+    fontWeight: 'bold',
     color: colors.VIOLET,
+  },
+  btnTitle_dark: {
+    color: colors.WHITE,
   },
 });

@@ -27,7 +27,6 @@ const LoginScreen = ({navigation}: Params) => {
   const {translate} = useContext(localeContex);
   return (
     <MainWrapper>
-      <LanguageSwitch />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <View>
