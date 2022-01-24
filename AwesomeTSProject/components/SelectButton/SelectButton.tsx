@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
 
-import s from './SelectButton-style';
+import styles from './SelectButton.style';
 import {localeContex} from '../../context/LocaleProvider';
 
 interface IProps {
@@ -17,9 +17,9 @@ const SelectButton = ({value, action, active}: IProps) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[s.btn, isActive && s.active]}
+      style={[styles.btn, isActive && styles.active]}
       onPress={() => action(value)}>
-      <Text style={[s.btnTitle, isActive && s.active]}>
+      <Text style={[styles.btnTitle, isActive && styles.active]}>
         {translate.columnBtn(value)}
       </Text>
     </TouchableOpacity>

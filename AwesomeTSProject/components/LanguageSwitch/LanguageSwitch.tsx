@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 import styles from './LanguageSwitch.style';
-import btnSelect from '../SelectButton/SelectButton-style';
+import btnSelect from '../SelectButton/SelectButton.style';
 import {LANGUAGE} from '../../locales/constants';
 import {localeContex} from '../../context/LocaleProvider';
 
@@ -28,26 +28,20 @@ const LanguageSwitch = (): JSX.Element => {
     <View style={[styles.container, !showLanguageSwitcher && {opacity: 0}]}>
       <TouchableOpacity
         activeOpacity={0.8}
-        style={[btnSelect.btn, language === LANGUAGE.en && btnSelect.active]}
+        style={[styles.btn, language === LANGUAGE.en && styles.active]}
         onPress={onPressEN}>
         <Text
-          style={[
-            btnSelect.btnTitle,
-            language === LANGUAGE.en && btnSelect.active,
-          ]}>
+          style={[styles.btnTitle, language === LANGUAGE.en && styles.active]}>
           EN
         </Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         activeOpacity={0.8}
-        style={[btnSelect.btn, language === LANGUAGE.ru && btnSelect.active]}
+        style={[styles.btn, language === LANGUAGE.ru && styles.active]}
         onPress={onPressRU}>
         <Text
-          style={[
-            btnSelect.btnTitle,
-            language === LANGUAGE.ru && btnSelect.active,
-          ]}>
+          style={[styles.btnTitle, language === LANGUAGE.ru && styles.active]}>
           RU
         </Text>
       </TouchableOpacity>

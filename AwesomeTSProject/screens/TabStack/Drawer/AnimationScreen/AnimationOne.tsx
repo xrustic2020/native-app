@@ -1,12 +1,14 @@
-import {View, Text, Animated, Easing, useWindowDimensions} from 'react-native';
-import React, {useRef} from 'react';
+import {View, Animated, Easing, useWindowDimensions} from 'react-native';
+import React, {useRef, useContext} from 'react';
 import styles from './AnimationScreen.style';
 import AnimNavigateItem from './AnimNavigateItem';
 import {IAnimateSettings} from './types';
 import AppleIcon from '../../../../images/icons/apple-alt-solid.svg';
 import {colors} from '../../../../assets/constants/styles';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 const AnimationOne = () => {
+  const {isDarkTheme} = useContext(themeContext);
   const DC = useWindowDimensions();
   const animation = useRef(new Animated.Value(0)).current;
 
@@ -89,7 +91,11 @@ const AnimationOne = () => {
             ],
           },
         ]}>
-        <AppleIcon width={100} height={100} fill={colors.WHITE} />
+        <AppleIcon
+          width={100}
+          height={100}
+          fill={isDarkTheme ? colors.BLACK : colors.WHITE}
+        />
       </Animated.View>
     </View>
   );

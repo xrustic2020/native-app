@@ -1,11 +1,12 @@
-import { StyleSheet } from 'react-native';
-import { fonts } from '../../../../assets/constants/styles';
+import {StyleSheet} from 'react-native';
+import {colors, fonts} from '../../../../assets/constants/styles';
 
 export default StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 20,
     position: 'relative',
+    backgroundColor: colors.WHITE_MORE,
   },
   modal: {
     flex: 1,

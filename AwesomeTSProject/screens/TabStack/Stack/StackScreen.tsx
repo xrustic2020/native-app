@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import CreatePostScreen from './CreatePost/CreatePostScreen';
 import PostsScreen from './Posts/PostsScreen';
+import SettingScreen from './Settings/SettingScreen';
 import ModalScreen from '../ModalScreen/ModalScreen';
 import Modal from '../NativeModal/NativeModal';
 
@@ -35,6 +36,13 @@ const CreateScreen = () => {
             component={CreatePostScreen}
             options={{
               title: translate.createPost,
+            }}
+          />
+          <Stack.Screen
+            name="Settings"
+            component={SettingScreen}
+            options={{
+              title: translate.settingScreen,
             }}
           />
         </Stack.Group>

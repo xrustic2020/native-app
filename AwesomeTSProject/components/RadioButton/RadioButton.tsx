@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, Text} from 'react-native';
+import {colors, placeholders} from '../../assets/constants/styles';
+import {themeContext} from '../../context/ThemeProvider';
 
-import s from './RadioButton.style';
+import styles from './RadioButton.style';
 
 interface IProps {
   value: string;
@@ -9,13 +11,27 @@ interface IProps {
 }
 
 const RadioButton = ({value, subscription}: IProps) => {
+  const {isDarkTheme} = useContext(themeContext);
   const selected = subscription === value;
   return (
     <>
-      <View style={[s.circle, selected && s.selected]}>
-        {selected ? <View style={s.innerCircle} /> : null}
+      <View
+        style={[
+          styles.circle,
+          selected && (isDarkTheme ? styles.selected_dark : styles.selected),
+        ]}>
+        {selected ? (
+          <View
+            style={[
+              styles.innerCircle,
+              isDarkTheme && {backgroundColor: colors.LIGHT_VIOLET},
+            ]}
+          />
+        ) : null}
       </View>
-      <Text style={s.text}>{value.toLocaleUpperCase()}</Text>
+      <Text style={[styles.text, isDarkTheme && placeholders.WHITE_TEXT_COLOR]}>
+        {value.toLocaleUpperCase()}
+      </Text>
     </>
   );
 };

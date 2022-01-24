@@ -56,6 +56,7 @@ const translates: ITranslate = {
   sendBtn: 'SEND',
   webViewTitle: 'Hello, this is a WebView Screen',
   animationScreenTitile: 'Animation',
+  settingScreen: 'Settings',
 };
 
 export default translates;

@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import CreatePostScreen from '../Stack/CreatePost/CreatePostScreen';
 import PostsScreen from '../Stack/Posts/PostsScreen';
+import SettingScreen from '../Stack/Settings/SettingScreen';
 
 import {colors} from '../../../assets/constants/styles';
 import {localeContex} from '../../../context/LocaleProvider';
@@ -29,6 +30,11 @@ const CreateScreen = () => {
           name="Create Post"
           component={CreatePostScreen}
           options={{title: translate.createPost}}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={SettingScreen}
+          options={{title: translate.settingScreen}}
         />
       </Stack.Navigator>
     </>
