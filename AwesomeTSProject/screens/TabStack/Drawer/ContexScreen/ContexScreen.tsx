@@ -6,19 +6,26 @@ import ctx from '../../../../context/AppContext';
 import SolidButton from '../../../../components/SolidButton/SolidButton';
 import SelectButton from '../../../../components/SelectButton/SelectButton';
 import {localeContex} from '../../../../context/LocaleProvider';
+import {themeContext} from '../../../../context/ThemeProvider';
+import {placeholders} from '../../../../assets/constants/styles';
 
 const ContextScreen = () => {
   const [selectedValue, setSelectedValue] = useState(2);
   const {data, error, loading, getUserData, clearData} = useContext(ctx);
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
 
   const blockSizes = ['0', '100%', '49%', '32%'];
   const empty = () => {};
   const isHasData = data.length > 0;
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>{translate.coontextTitle}</Text>
+    <View
+      style={[styles.container, isDarkTheme && placeholders.DARK_BACKGROUND]}>
+      <Text
+        style={[styles.heading, isDarkTheme && placeholders.WHITE_TEXT_COLOR]}>
+        {translate.coontextTitle}
+      </Text>
       <View style={styles.select}>
         <SelectButton
           value={1}
@@ -47,7 +54,7 @@ const ContextScreen = () => {
           data={data}
           renderItem={({item}) => {
             return (
-              <View style={[s.item, {width: blockSizes[selectedValue]}]}>
+              <View style={[styles.item, {width: blockSizes[selectedValue]}]}>
                 <View style={styles.textWrapper}>
                   <Text style={styles.name}>{item.name}</Text>
                 </View>
@@ -60,7 +67,7 @@ const ContextScreen = () => {
           }}
           keyExtractor={item => item.id.toString()}
           numColumns={selectedValue}
-          columnWrapperStyle={selectedValue > 1 && s.contentContainer}
+          columnWrapperStyle={selectedValue > 1 && styles.contentContainer}
         />
       )}
       {error &&

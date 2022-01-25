@@ -1,5 +1,7 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 import {View, Text, TextInput} from 'react-native';
+import {placeholders} from '../../assets/constants/styles';
+import {themeContext} from '../../context/ThemeProvider';
 import s from './CustomInput.style';
 
 interface IProps {
@@ -23,6 +25,7 @@ const CustomInput = ({
 }: IProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef();
+  const {isDarkTheme} = useContext(themeContext);
 
   const toggleFocused = () => {
     setIsFocused(prev => !prev);
@@ -45,12 +48,25 @@ const CustomInput = ({
 
   return (
     <View style={s.inputContainer}>
-      <Text style={[s.placeholder, isMovePlaceholder()]} onPress={focused}>
+      <Text
+        style={[
+          s.placeholder,
+          isMovePlaceholder(),
+          isDarkTheme && {
+            ...placeholders.WHITE_TEXT_COLOR,
+            ...placeholders.DARK_BACKGROUND,
+          },
+        ]}
+        onPress={focused}>
         {title}
       </Text>
       <TextInput
         ref={initialRef}
-        style={[s.textInput, valid && s.notValid]}
+        style={[
+          s.textInput,
+          valid && s.notValid,
+          isDarkTheme && placeholders.WHITE_TEXT_COLOR,
+        ]}
         onFocus={toggleFocused}
         onBlur={toggleFocused}
         value={value}

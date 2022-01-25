@@ -10,13 +10,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    backgroundColor: colors.WHITE_MORE,
   },
   header: {
     width: '100%',
-    height: 70,
+    height: 75,
     backgroundColor: colors.LIGHT_VIOLET,
     alignItems: 'center',
     marginBottom: 40,
+    paddingBottom: 20,
   },
   headerWrapper: {
     width: '80%',
@@ -66,7 +68,13 @@ export default StyleSheet.create({
       },
     }),
   },
+  box_dark: {
+    shadowColor: colors.WHITE,
+  },
   phone: {
     marginBottom: 20,
+  },
+  whiteTextColor: {
+    color: colors.WHITE,
   },
 });

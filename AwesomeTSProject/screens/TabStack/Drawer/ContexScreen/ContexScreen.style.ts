@@ -9,13 +9,17 @@ import {
 export default StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: indents.MAIN_HORIZONTAL_PADING,
+    paddingHorizontal: indents.MAIN_HORIZONTAL_PADING,
+    backgroundColor: colors.WHITE_MORE,
+  },
+  container_dark: {
+    backgroundColor: colors.GREY_MORE,
   },
   heading: {
     marginVertical: 20,
     textAlign: 'center',
     fontSize: fonts.HEADING_SIZE,
-    fontWeight: fonts.WEIGHT_SIZE.toString(),
+    fontWeight: 'bold',
   },
   select: {
     flexDirection: 'row',

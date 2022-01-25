@@ -3,12 +3,16 @@ import {View, Text, FlatList, Image} from 'react-native';
 
 import styles from './ImagesScreen.style';
 import {localeContex} from '../../../../context/LocaleProvider';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 const PostsScreen = () => {
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>{translate.imagesTitle}</Text>
+    <View style={[styles.container, isDarkTheme && styles.container_dark]}>
+      <Text style={[styles.heading, isDarkTheme && styles.whiteTextColor]}>
+        {translate.imagesTitle}
+      </Text>
 
       <FlatList
         style={styles.list}

@@ -56,6 +56,7 @@ const translates: ITranslate = {
   sendBtn: 'ОТПРАВИТЬ',
   webViewTitle: 'Привет, это экран демонстрации Веб Вью',
   animationScreenTitile: 'Анимации',
+  settingScreen: 'Настройки',
 };
 
 export default translates;

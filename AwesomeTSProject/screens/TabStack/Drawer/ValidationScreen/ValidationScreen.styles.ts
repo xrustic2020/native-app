@@ -9,6 +9,7 @@ import {
 export default StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.WHITE_MORE,
   },
   modal: {
     flex: 1,
@@ -24,12 +25,14 @@ export default StyleSheet.create({
   },
   form: {
     flex: 1,
-    backgroundColor: colors.WHITE,
     padding: 20,
   },
   button: {
     padding: 20,
     backgroundColor: colors.VIOLET,
+  },
+  button_dark: {
+    backgroundColor: colors.LIGHT_VIOLET,
   },
   btnTitle: {
     color: colors.WHITE,

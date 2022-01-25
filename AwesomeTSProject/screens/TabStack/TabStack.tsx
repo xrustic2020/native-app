@@ -16,15 +16,20 @@ import MenuIcon from '../../images/icons/align-justify.svg';
 
 import {colors} from '../../assets/constants/styles';
 import {localeContex} from '../../context/LocaleProvider';
+import {themeContext} from '../../context/ThemeProvider';
 
 const TabStack = () => {
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
   return (
     <Tab.Navigator
       initialRouteName="Stack"
       screenOptions={{
         tabBarActiveTintColor: colors.LIGHT_VIOLET,
-        tabBarInactiveTintColor: colors.GREY,
+        tabBarStyle: {
+          backgroundColor: isDarkTheme ? colors.GREY : colors.WHITE,
+        },
+        tabBarInactiveTintColor: isDarkTheme ? colors.WHITE : colors.GREY,
         headerShown: false,
       }}>
       <Tab.Screen

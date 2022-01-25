@@ -1,12 +1,14 @@
 import {View, Animated, useWindowDimensions} from 'react-native';
-import React, {useRef} from 'react';
+import React, {useRef, useContext} from 'react';
 import styles from './AnimationScreen.style';
 import {colors} from '../../../../assets/constants/styles';
 import AnimNavigateItem from './AnimNavigateItem';
 import BombIcon from '../../../../images/icons/bomb-solid.svg';
 import {ISpringAnimateSettings} from './types';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 const AnimationThree = () => {
+  const {isDarkTheme} = useContext(themeContext);
   const DC = useWindowDimensions();
   const animation = useRef(new Animated.Value(0)).current;
 
@@ -96,7 +98,11 @@ const AnimationThree = () => {
             }),
           },
         ]}>
-        <BombIcon width={100} height={100} fill={colors.WHITE} />
+        <BombIcon
+          width={100}
+          height={100}
+          fill={isDarkTheme ? colors.BLACK : colors.WHITE}
+        />
       </Animated.View>
     </View>
   );

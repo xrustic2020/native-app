@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
+import {themeContext} from '../../context/ThemeProvider';
 
-import s from './NavigateButton-style';
+import styles from './NavigateButton.style';
 
 interface IProps {
   text: string;
@@ -9,9 +10,15 @@ interface IProps {
 }
 
 const NavigateButton = ({text, action}: IProps) => {
+  const {isDarkTheme} = useContext(themeContext);
   return (
-    <TouchableOpacity activeOpacity={0.5} style={s.btn} onPress={action}>
-      <Text style={s.btnTitle}>{text.toUpperCase()}</Text>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      style={[styles.btn, isDarkTheme && styles.btn_dark]}
+      onPress={action}>
+      <Text style={[styles.btnTitle, isDarkTheme && styles.btnTitle_dark]}>
+        {text.toUpperCase()}
+      </Text>
     </TouchableOpacity>
   );
 };

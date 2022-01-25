@@ -11,7 +11,7 @@ import {
 import {z} from 'zod';
 
 import {SUBSCRIPTION} from '../../../../assets/constants/variablles';
-import {colors} from '../../../../assets/constants/styles';
+import {colors, placeholders} from '../../../../assets/constants/styles';
 import styles from './ValidationScreen.styles';
 
 import CustomInput from '../../../../components/CustomInput/CustomInput';
@@ -20,6 +20,7 @@ import Dropdown from '../../../../components/Dropdown/Dropdown';
 import RadioSelect from '../../../../components/RadioSelect/RadioSelect';
 import CustomSwitch from '../../../../components/CustomSwitch/CustomSwitch';
 import {localeContex} from '../../../../context/LocaleProvider';
+import {themeContext} from '../../../../context/ThemeProvider';
 
 const schemas: {[key: string]: z.ZodString | z.ZodLiteral<true>} = {
   name: z.string().min(3),
@@ -49,6 +50,7 @@ const ValidationScreen = (): JSX.Element => {
     agreements: true,
   });
   const {translate} = useContext(localeContex);
+  const {isDarkTheme} = useContext(themeContext);
 
   const onChangeName = (value: string) => {
     setName(value);
@@ -107,7 +109,8 @@ const ValidationScreen = (): JSX.Element => {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, isDarkTheme && placeholders.DARK_BACKGROUND]}>
       <StatusBar backgroundColor={colors.LIGHT_VIOLET} />
       <ScrollView style={styles.form}>
         <CustomInput
@@ -159,7 +162,9 @@ const ValidationScreen = (): JSX.Element => {
         />
       </ScrollView>
 
-      <Pressable style={styles.button} onPress={handleSubmit}>
+      <Pressable
+        style={[styles.button, isDarkTheme && styles.button_dark]}
+        onPress={handleSubmit}>
         <Text style={styles.btnTitle}>{translate.sendBtn}</Text>
       </Pressable>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>

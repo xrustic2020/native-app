@@ -5,11 +5,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     ...placeholders.FLEX_CENTER_CENTER,
+    backgroundColor: colors.WHITE_MORE,
+  },
+  container_dark: {
+    backgroundColor: colors.GREY_MORE,
   },
   heading: {
     paddingTop: 10,
     marginBottom: 50,
-    fontWeight: fonts.WEIGHT_SIZE.toString(),
+    fontWeight: 'bold',
     fontSize: fonts.HEADING_SIZE,
   },
   list: {
@@ -19,5 +23,8 @@ export default StyleSheet.create({
   imga: {
     width: '100%',
     height: 400,
+  },
+  whiteTextColor: {
+    color: colors.WHITE,
   },
 });

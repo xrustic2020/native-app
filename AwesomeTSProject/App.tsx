@@ -15,6 +15,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import AuthProvider from './context/AuthProvider';
 import AppProvider from './context/AppProvider';
 import LocaleProvider from './context/LocaleProvider';
+import ThemeProvider from './context/ThemeProvider';
 
 import AuthCheck from './components/AuthCheck/AuthCheck';
 
@@ -26,11 +27,13 @@ const App = () => {
   return (
     <AuthProvider>
       <AppProvider>
-        <LocaleProvider>
-          <NavigationContainer>
-            <AuthCheck />
-          </NavigationContainer>
-        </LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            <NavigationContainer>
+              <AuthCheck />
+            </NavigationContainer>
+          </LocaleProvider>
+        </ThemeProvider>
       </AppProvider>
     </AuthProvider>
   );
