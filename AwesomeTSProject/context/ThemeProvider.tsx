@@ -1,6 +1,7 @@
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useState, useEffect, useContext} from 'react';
 import {useColorScheme} from 'react-native';
 import type {ColorSchemeName} from 'react-native';
+import appContext from './AppContext';
 
 export const THEME = {
   light: 'light',
@@ -34,12 +35,13 @@ export const themeContext = createContext(defaultStore);
 export default function ThemeProvider({children}: IProps) {
   const [theme, setTheme] = useState<ColorSchemeName>(defaultStore.theme);
   const [autoSetTheme, setAutoSetTheme] = useState(defaultStore.autoSetTheme);
+  const {setStorageData, getStorageData} = useContext(appContext);
 
   const colorScheme = useColorScheme();
   const isDarkTheme = theme === THEME.dark;
 
-  console.log('theme: ', theme);
-  console.log('autoSetTheme: ', autoSetTheme);
+  // console.log('theme: ', theme);
+  // console.log('autoSetTheme: ', autoSetTheme);
 
   const changeThemeToDark = () => {
     setTheme(THEME.dark);
@@ -59,6 +61,23 @@ export default function ThemeProvider({children}: IProps) {
       setTheme(colorScheme);
     }
   }, [autoSetTheme, colorScheme]);
+
+  // useEffect(() => {
+  //   getStorageData('theme').then(data => {
+  //     if (!data) {
+  //       console.log('No theme value in storage');
+  //       return;
+  //     }
+  //     const result = JSON.parse(data);
+  //     console.log('theme in storage', result);
+  //     return result;
+  //   });
+  //   // console.log('themeInStorage', themeInStorage);
+
+  //   // return () => {
+  //   //   second;
+  //   // };
+  // }, []);
 
   return (
     <themeContext.Provider

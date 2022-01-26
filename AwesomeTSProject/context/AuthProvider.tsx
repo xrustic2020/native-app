@@ -27,10 +27,8 @@ export default class AuthProvider extends Component {
     try {
       const value = await AsyncStorage.getItem(key);
       if (value === null) {
-        console.log('NULL storage:', value);
         return;
       }
-      console.log('starting storage:', value);
       return value;
     } catch (e) {
       console.log('Error getting data in storage');
@@ -49,7 +47,6 @@ export default class AuthProvider extends Component {
     this.getData('auth').then(data => {
       if (data) {
         const result = JSON.parse(data);
-        console.log('parsed Data from store', result);
         this.setState(prev => ({
           ...prev,
           isAuthorization: result.isAuthorization,
@@ -63,10 +60,8 @@ export default class AuthProvider extends Component {
   }
 
   componentDidUpdate(_: IProps, prevState: IState) {
-    console.log('update components, State:', prevState);
     this.getData('auth').then(data => console.log('get store data:', data));
     if (this.state.isAuthorization !== prevState.isAuthorization) {
-      console.log('is not equal', this.state.isAuthorization);
       const updateStoreData = JSON.stringify({
         isAuthorization: this.state.isAuthorization,
       });
@@ -75,7 +70,6 @@ export default class AuthProvider extends Component {
   }
 
   render() {
-    console.log('get data in render', this.getData('auth'));
     return (
       <AuthContext.Provider value={this.state}>
         {this.props.children}

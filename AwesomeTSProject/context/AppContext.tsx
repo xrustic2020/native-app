@@ -6,6 +6,8 @@ const appContext = createContext({
   loading: false,
   getUserData: async () => {},
   clearData: () => {},
+  load: async (key: string) => {},
+  save: async (key: string, value: string) => {},
 });
 
 export default appContext;

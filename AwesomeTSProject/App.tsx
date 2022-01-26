@@ -25,8 +25,8 @@ const App = () => {
   }, []);
 
   return (
-    <AuthProvider>
-      <AppProvider>
+    <AppProvider>
+      <AuthProvider>
         <ThemeProvider>
           <LocaleProvider>
             <NavigationContainer>
@@ -34,8 +34,8 @@ const App = () => {
             </NavigationContainer>
           </LocaleProvider>
         </ThemeProvider>
-      </AppProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </AppProvider>
   );
 };
 
